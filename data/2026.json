@@ -1,0 +1,567 @@
+{
+  "year": 2026,
+  "updatedAt": "2026-09-17",
+  "projects": [
+    {
+      "id": "p1",
+      "syncKey": null,
+      "category": "course",
+      "title": "Python for Everyone",
+      "subtitle": "",
+      "source": "Coursera",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "syncKey": null,
+      "category": "book",
+      "title": "Isaac Newton",
+      "subtitle": "",
+      "source": "",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "syncKey": null,
+      "category": "course",
+      "title": "Python Data Structures",
+      "subtitle": "",
+      "source": "Coursera",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": "2026-02-01"
+        },
+        {
+          "done": true,
+          "date": "2026-02-13"
+        },
+        {
+          "done": true,
+          "date": "2026-02-13"
+        },
+        {
+          "done": true,
+          "date": "2026-02-26"
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "syncKey": null,
+      "category": "book",
+      "title": "The Changing World Order",
+      "subtitle": "",
+      "source": "",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": "2026-02-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        },
+        {
+          "done": true,
+          "date": "2026-03-16"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "syncKey": null,
+      "category": "book",
+      "title": "สอนลูกให้เป็นควอนท์",
+      "subtitle": "",
+      "source": "",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": "2026-02-20"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        },
+        {
+          "done": true,
+          "date": "2026-02-23"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "syncKey": null,
+      "category": "book",
+      "title": "A Man for All Markets",
+      "subtitle": "เทรดเดอร์อัจฉริยะผู้เอาชนะเวกัสและวอลสตรีท",
+      "source": "",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": "2026-03-10"
+        },
+        {
+          "done": true,
+          "date": "2026-03-10"
+        },
+        {
+          "done": true,
+          "date": "2026-03-10"
+        },
+        {
+          "done": true,
+          "date": "2026-03-10"
+        },
+        {
+          "done": true,
+          "date": "2026-03-10"
+        },
+        {
+          "done": true,
+          "date": "2026-04-11"
+        },
+        {
+          "done": true,
+          "date": "2026-04-11"
+        },
+        {
+          "done": true,
+          "date": "2026-04-11"
+        },
+        {
+          "done": true,
+          "date": "2026-04-11"
+        },
+        {
+          "done": true,
+          "date": "2026-04-11"
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "syncKey": null,
+      "category": "book",
+      "title": "Outliers",
+      "subtitle": "สัมฤทธิ์พิศวง",
+      "source": "",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": "2026-04-11"
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "syncKey": null,
+      "category": "course",
+      "title": "Claude 101",
+      "subtitle": "",
+      "source": "Anthropic Academy",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": "2026-04-11"
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "sync-Splinterland Bot Auto Play",
+      "syncKey": "Splinterland Bot Auto Play",
+      "category": "project",
+      "title": "splinter-bot",
+      "subtitle": "",
+      "source": "Roadmap board",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "sync-BP-Tutor",
+      "syncKey": "BP-Tutor",
+      "category": "project",
+      "title": "bp-tutor",
+      "subtitle": "",
+      "source": "Roadmap board",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "sync-road-to-trader",
+      "syncKey": "road-to-trader",
+      "category": "project",
+      "title": "road-to-trader",
+      "subtitle": "",
+      "source": "Roadmap board",
+      "note": "",
+      "steps": [
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": true,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        },
+        {
+          "done": false,
+          "date": null
+        }
+      ]
+    }
+  ]
+}
