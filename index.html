@@ -98,9 +98,33 @@
         if (!s || typeof s !== "object" || typeof s.done !== "boolean") return `${at}.steps[${j}].done ต้องเป็น true หรือ false`;
         if (s.date != null && !isDate(s.date)) return `${at}.steps[${j}].date ต้องเป็น null หรือวันที่รูปแบบ YYYY-MM-DD`;
       }
+      if (p.stage != null && typeof p.stage !== "string") return `${at}.stage ต้องเป็นข้อความ`;
+      if (p.roadmap != null) {
+        const rm = p.roadmap;
+        if (typeof rm !== "object" || Array.isArray(rm) || !Array.isArray(rm.steps)) return `${at}.roadmap ต้องเป็นอ็อบเจกต์ที่มี steps เป็น array`;
+        for (let j = 0; j < rm.steps.length; j++) {
+          const s = rm.steps[j];
+          if (!s || typeof s !== "object" || typeof s.title !== "string" || typeof s.status !== "string") return `${at}.roadmap.steps[${j}] ต้องมี title และ status เป็นข้อความ`;
+        }
+      }
     }
     return null;
   }
+
+  /* Roadmap step statuses as the status files spell them. Mirrors
+     DONE_STATUSES in sync_goals.py for what counts as done. */
+  const RM_STATUS = {
+    done: ["เสร็จแล้ว", "done"],
+    complete: ["เสร็จแล้ว", "done"],
+    completed: ["เสร็จแล้ว", "done"],
+    current: ["กำลังทำ", "doing"],
+    in_progress: ["กำลังทำ", "doing"],
+    todo: ["ยังไม่เริ่ม", "todo"],
+    unverifiable: ["ยังยืนยันไม่ได้", "warn"],
+    blocked: ["ติดขัด", "warn"]
+  };
+  const rmStatus = (s) => RM_STATUS[String(s || "").trim().toLowerCase()] || [s || "—", "todo"];
+  const stepRef = (s) => s ? { n: s.n, title: typeof s.title === "string" ? s.title : "" } : null;
 
   function normalize(data) {
     return data.projects.map((p) => ({
@@ -112,6 +136,18 @@
       subtitle: typeof p.subtitle === "string" ? p.subtitle : "",
       source: typeof p.source === "string" ? p.source : "",
       note: typeof p.note === "string" ? p.note : "",
+      stage: typeof p.stage === "string" ? p.stage.trim() : "",
+      roadmap: p.roadmap ? {
+        current: stepRef(p.roadmap.current),
+        next: stepRef(p.roadmap.next),
+        steps: p.roadmap.steps.map((s) => ({
+          n: s.n,
+          title: s.title,
+          status: s.status,
+          detail: typeof s.detail === "string" ? s.detail : "",
+          seen: isDate(s.firstSeenDone) ? s.firstSeenDone : null
+        }))
+      } : null,
       steps: p.steps.map((s) => ({ done: s.done, date: s.done && isDate(s.date) ? s.date : null }))
     }));
   }
@@ -254,6 +290,23 @@
     );
   }
 
+  function StepBlock({ label, step, full, quiet }) {
+    const [text, kind] = rmStatus(full && full.status);
+    return h("div", { className: "d-stage" + (quiet ? " quiet" : "") }, h("div", { className: "d-stage-k" }, h("span", null, label, " · ขั้นที่ ", step.n), full && h("span", { className: `rm-st ${kind}` }, text)), h("div", { className: "d-stage-t" }, step.title || "—"), full && full.detail && h("details", { className: "d-more" }, h("summary", null, "รายละเอียด"), h("p", { className: "rm-detail" }, full.detail)));
+  }
+
+  function RoadmapPanel({ rm }) {
+    const find = (ref) => ref ? rm.steps.find((s) => s.n === ref.n && s.title === ref.title) || null : null;
+    const cur = find(rm.current);
+    const nxt = find(rm.next);
+    const doneN = rm.steps.filter((s) => rmStatus(s.status)[1] === "done").length;
+    return h(React.Fragment, null, h("h3", { className: "d-h" }, "ขั้นปัจจุบัน"), rm.current ? h(StepBlock, { label: "ตอนนี้", step: rm.current, full: cur }) : h("p", { className: "d-stage done" }, "ทำครบทุกขั้นในโรดแมปแล้ว"), rm.next && h(StepBlock, { label: "ถัดไป", step: rm.next, full: nxt, quiet: true }), rm.steps.length > 0 && h("details", { className: "rm-all" }, h("summary", null, h("span", null, "ทุกขั้นในโรดแมป"), h("span", { className: "rm-all-n" }, "เสร็จ ", doneN, " จาก ", rm.steps.length, " ขั้น")), h("ol", { className: "rm-list" }, rm.steps.map((s, i) => {
+      const [text, kind] = rmStatus(s.status);
+      const mark = s === cur ? " now" : s === nxt ? " next" : "";
+      return h("li", { key: i, className: kind + mark }, h("details", null, h("summary", null, h("i", { className: "rm-dot" }), h("span", { className: "rm-n" }, s.n), h("span", { className: "rm-t" }, s.title || "—"), h("span", { className: `rm-st ${kind}` }, text, s.seen ? ` · ${fmtTH(s.seen)}` : "")), h("p", { className: "rm-detail" + (s.detail ? "" : " none") }, s.detail || "ไม่มีรายละเอียด")));
+    }))));
+  }
+
   function Detail({ p, today }) {
     const cat = CATS[p.category] || CATS.other;
     const c = doneCount(p);
@@ -264,7 +317,7 @@
     const span = first ? daysBetween(first, st === "done" ? last : today) + 1 : null;
     const idle = st === "doing" && last ? daysBetween(last, today) : null;
     const statusText = st === "done" ? "สำเร็จแล้ว" : st === "todo" ? "ยังไม่เริ่ม" : idle >= 30 ? `ไม่มีความคืบหน้ามา ${idle} วัน` : "กำลังทำ";
-    return h("div", { className: "detail" + (st === "done" ? " is-done" : ""), style: { "--c": cat.color, "--t": cat.tint, "--d": cat.deep } }, h("div", { className: "d-top" }, h("span", { className: "tag" }, cat.label), p.source && h("span", { className: "d-source" }, p.source)), h("h2", null, p.title), p.subtitle && h("p", { className: "d-sub" }, p.subtitle), h("div", { className: "d-progress" }, h("span", { className: "d-pct" }, c * 10, "%"), h("span", { className: "d-status" + (idle >= 30 ? " warn" : "") }, statusText)), h(Ticker, { p, size: "lg" }), h("dl", { className: "d-facts" }, h("div", null, h("dt", null, "เริ่ม"), h("dd", null, first ? fmtTH(first) : "—")), h("div", null, h("dt", null, "อัพเดตล่าสุด"), h("dd", null, last ? fmtTH(last) : "—")), h("div", null, h("dt", null, st === "done" ? "ใช้เวลา" : "ผ่านมาแล้ว"), h("dd", null, span ? `${span} วัน` : "—"))), c > 0 && !first && h("p", { className: "d-hint" }, "ช่วงที่ทำเสร็จยังไม่มีวันที่กำกับไว้ในไฟล์ข้อมูล"), p.syncKey && h("p", { className: "d-hint" }, "ซิงก์จาก Roadmap board (คีย์ ", p.syncKey, p.syncedAt ? `, ล่าสุด ${fmtTH(p.syncedAt)}` : "", ")"), h("h3", { className: "d-h" }, "วันที่ทำถึงแต่ละช่วง"), h("ol", { className: "d-log" }, p.steps.map((s, i) => h("li", { key: i, className: s.done ? "on" : "" }, h("span", { className: "d-step" }, (i + 1) * 10, "%"), s.done ? h("span", null, s.date ? fmtTH(s.date) : "—") : h("span", { className: "d-none" }, "ยังไม่ถึง")))), p.note && h(React.Fragment, null, h("h3", { className: "d-h" }, "โน้ต"), h("p", { className: "d-note" }, p.note)));
+    return h("div", { className: "detail" + (st === "done" ? " is-done" : ""), style: { "--c": cat.color, "--t": cat.tint, "--d": cat.deep } }, h("div", { className: "d-top" }, h("span", { className: "tag" }, cat.label), p.source && h("span", { className: "d-source" }, p.source)), h("h2", null, p.title), p.subtitle && h("p", { className: "d-sub" }, p.subtitle), h("div", { className: "d-progress" }, h("span", { className: "d-pct" }, c * 10, "%"), h("span", { className: "d-status" + (idle >= 30 ? " warn" : "") }, statusText)), h(Ticker, { p, size: "lg" }), h("dl", { className: "d-facts" }, h("div", null, h("dt", null, "เริ่ม"), h("dd", null, first ? fmtTH(first) : "—")), h("div", null, h("dt", null, "อัพเดตล่าสุด"), h("dd", null, last ? fmtTH(last) : "—")), h("div", null, h("dt", null, st === "done" ? "ใช้เวลา" : "ผ่านมาแล้ว"), h("dd", null, span ? `${span} วัน` : "—"))), c > 0 && !first && h("p", { className: "d-hint" }, "ช่วงที่ทำเสร็จยังไม่มีวันที่กำกับไว้ในไฟล์ข้อมูล"), p.syncKey && h("p", { className: "d-hint" }, "ซิงก์จาก Roadmap board (คีย์ ", p.syncKey, p.syncedAt ? `, ล่าสุด ${fmtTH(p.syncedAt)}` : "", ")"), p.roadmap ? h(RoadmapPanel, { rm: p.roadmap }) : p.stage && h(React.Fragment, null, h("h3", { className: "d-h" }, "ขั้นปัจจุบัน"), h("div", { className: "d-stage" }, h("div", { className: "d-stage-t" }, p.stage))), h("h3", { className: "d-h" }, "วันที่ทำถึงแต่ละช่วง"), h("ol", { className: "d-log" }, p.steps.map((s, i) => h("li", { key: i, className: s.done ? "on" : "" }, h("span", { className: "d-step" }, (i + 1) * 10, "%"), s.done ? h("span", null, s.date ? fmtTH(s.date) : "—") : h("span", { className: "d-none" }, "ยังไม่ถึง")))), p.note && h(React.Fragment, null, h("h3", { className: "d-h" }, "โน้ต"), h("p", { className: "d-note" }, p.note)));
   }
 
   function Shell({ years, year, onYear, children }) {
@@ -587,6 +640,42 @@
 .gd .d-log li.on .d-step{color:var(--c);font-weight:600}
 .gd .d-none{color:#A7A49C}
 .gd .d-note{margin:0;font-size:14.5px;white-space:pre-wrap}
+.gd summary{cursor:pointer;list-style:none}
+.gd summary::-webkit-details-marker{display:none}
+.gd .d-stage{margin:0 0 8px;padding:12px 14px;border-radius:12px;background:var(--t)}
+.gd .d-stage.quiet{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
+.gd .d-stage.done{color:var(--d);font-weight:600}
+.gd .d-stage-k{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;font-weight:600;color:var(--d)}
+.gd .d-stage.quiet .d-stage-k{color:var(--muted)}
+.gd .d-stage-t{font-weight:600;line-height:1.45;margin-top:2px}
+.gd .d-stage.quiet .d-stage-t{font-weight:500}
+.gd .d-more{margin-top:6px;font-size:13px}
+.gd .d-more summary{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.gd .d-more .rm-detail{margin:6px 0 0;max-height:240px;overflow:auto}
+.gd .rm-st{font-size:12px;font-weight:500;white-space:nowrap;border-radius:999px;padding:0 8px;box-shadow:inset 0 0 0 1px currentColor;color:var(--muted)}
+.gd .rm-st.done{color:var(--d)}
+.gd .rm-st.doing{color:#8E6A18}
+.gd .rm-st.warn{color:var(--warn)}
+.gd .rm-all{margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
+.gd .rm-all > summary{display:flex;align-items:baseline;gap:8px;font-size:14px;font-weight:600}
+.gd .rm-all > summary::before{content:"▸";color:var(--muted);transition:transform .15s ease}
+.gd .rm-all[open] > summary::before{transform:rotate(90deg)}
+.gd .rm-all-n{margin-left:auto;font-size:13px;font-weight:400;color:var(--muted)}
+.gd .rm-list{list-style:none;margin:8px 0 0;padding:0 4px 0 0;max-height:440px;overflow:auto}
+.gd .rm-list li{border-bottom:1px solid var(--line)}
+.gd .rm-list li:last-child{border-bottom:0}
+.gd .rm-list li.now{background:linear-gradient(90deg,var(--t),rgba(0,0,0,0))}
+.gd .rm-list summary{display:grid;grid-template-columns:10px 36px minmax(0,1fr) auto;gap:8px;align-items:baseline;padding:7px 4px;font-size:13.5px;line-height:1.45}
+.gd .rm-list .rm-st{box-shadow:none;padding:0}
+.gd .rm-dot{width:9px;height:9px;border-radius:50%;background:var(--empty);align-self:center}
+.gd .rm-list li.done .rm-dot{background:var(--c)}
+.gd .rm-list li.doing .rm-dot{background:#8E6A18}
+.gd .rm-list li.warn .rm-dot{background:var(--warn)}
+.gd .rm-n{color:var(--muted);font-variant-numeric:tabular-nums}
+.gd .rm-list li.done .rm-t{color:var(--muted)}
+.gd .rm-list li.now .rm-t,.gd .rm-list li.next .rm-t{font-weight:600}
+.gd .rm-detail{margin:0 4px 10px 58px;font-size:13px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.gd .rm-detail.none{font-style:italic}
 .gd .inline-detail{margin:0 0 16px}
 
 /* ---- footer ---- */
@@ -610,6 +699,9 @@
   .gd .fact-v{font-size:19px}
   .gd .ring{width:112px;height:112px}
   .gd .d-log{grid-template-columns:1fr}
+  .gd .rm-list summary{grid-template-columns:10px 30px minmax(0,1fr)}
+  .gd .rm-list summary .rm-st{grid-column:3}
+  .gd .rm-detail{margin-left:4px}
   .gd .detail{padding:22px 16px}
 }
 @media (prefers-reduced-motion:reduce){

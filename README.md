@@ -9,6 +9,8 @@ index.html              the viewer (self-contained)
 data/index.json         which years exist
 data/<year>.json        one file per year — the only source of data
 scripts/validate-data.mjs  shape check, run in CI before deploy
+update.py               roadmap sync + validate + commit + push
+tests/                  tests for update.py
 .github/workflows/deploy.yml
 ```
 
@@ -22,36 +24,38 @@ scripts/validate-data.mjs  shape check, run in CI before deploy
 Nothing can be edited here. Progress is changed by editing the data files and
 committing them.
 
-## Yearly workflow
+## Updating
 
-The dashboard you edit is the one in Claude (it has add/edit/import/export).
-This repo only displays its output.
+This repo is the source of truth; there is no import or export.
 
-1. **Export** from the editable dashboard: *ดาวน์โหลด JSON*. You get
-   `<year>.json`.
-2. **Drop it in `data/`** — e.g. `data/2027.json`. Overwrite the existing file
-   when you are updating a year you already published.
-3. **Add the year to `data/index.json`**, newest first, and point `default` at
-   the year you want visitors to land on:
+- **Roadmap projects** sync themselves. Run `python update.py`: it reads the
+  Roadmap-board registry (`../Roadmap-board/projects.toml`) and each
+  registered `ROADMAP_STATUS.json`, read-only, merges them into
+  `data/<current year>.json` by `syncKey`, checks for anything private-looking
+  (local paths, emails, keys), runs the validator, and commits and pushes if
+  the data changed. It prints one line per project: progress and current
+  step. `python update.py --dry-run` does the same and writes nothing.
+- **Books, courses and hand-kept projects** are edited in the data file:
+  tick the next steps, date the newly ticked ones with today, then run
+  `python update.py` to validate, commit and push. `CLAUDE.md` has the exact
+  rules.
 
-   ```json
-   {
-     "years": [2027, 2026],
-     "default": 2027
-   }
-   ```
+The first time `update.py` would commit, it shows the diff and asks before
+committing and pushing.
 
-4. **Check the shape** before committing:
+A new year: create `data/<year>.json` as `{"year": <year>, "projects": []}`
+(carry over what continues), add the year to `data/index.json`, newest first,
+and point `default` at it:
 
-   ```
-   node scripts/validate-data.mjs
-   ```
+```json
+{
+  "years": [2027, 2026],
+  "default": 2027
+}
+```
 
-   It prints `data/ ok — …` or lists every problem it found.
-
-5. **Commit and push to `main`.** The workflow validates `data/` again, then
-   deploys the repo root to Pages. A malformed file fails the build, so the live
-   page never picks up broken data.
+The Pages workflow validates `data/` again before deploying, so a malformed
+file never goes live.
 
 One-time setup: in the repo's *Settings → Pages*, set **Source** to
 **GitHub Actions**.
@@ -99,7 +103,16 @@ Rules the validator enforces:
   `done: true|false` and `date: null` or `YYYY-MM-DD`. A step that is not done
   must not carry a date.
 - `syncKey`/`syncedAt` are optional (`null` or a string / `YYYY-MM-DD`);
-  `subtitle`, `source`, and `note` are optional strings.
+  `subtitle`, `source`, `note` and `stage` are optional strings.
+- `stage` is free text for manual entries (where the project is now). An
+  entry with a `roadmap` must not also have one.
+- `roadmap` (synced entries only, written by `update.py`):
+  `{ "current": {n, title} | null, "next": {n, title} | null, "steps": [...] }`.
+  Each step is `{ n, title, status, detail, firstSeenDone }`, in the status
+  file's order. `current` and `next` must be the first and second steps whose
+  status is not `done`/`complete`/`completed`. `firstSeenDone` is `null` or
+  `YYYY-MM-DD` and only on done steps. The entry's done segments must equal
+  `floor(done steps / total * 10)`.
 
 ## Local preview
 
