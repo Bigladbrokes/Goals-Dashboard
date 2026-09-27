@@ -55,7 +55,8 @@ and point `default` at it:
 ```
 
 The Pages workflow validates `data/` again before deploying, so a malformed
-file never goes live.
+file never goes live. It publishes only `index.html` and `data/`; the scripts,
+tests and notes stay in the repository.
 
 One-time setup: in the repo's *Settings → Pages*, set **Source** to
 **GitHub Actions**.

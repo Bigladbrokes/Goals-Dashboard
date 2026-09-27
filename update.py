@@ -64,7 +64,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent
 DATA_DIR = REPO / "data"
 # A sibling folder, so no machine-specific path is written into this file,
-# which is itself published with the site.
+# which is itself public in the GitHub repository.
 DEFAULT_ROADMAP_DIR = REPO.parent / "Roadmap-board"
 VALIDATOR = REPO / "scripts" / "validate-data.mjs"
 

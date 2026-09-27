@@ -6,8 +6,10 @@ import or export step: every change is an edit to the data file (manual
 entries) or a run of `update.py` (roadmap projects), and `update.py` commits
 and pushes.
 
-Everything in the repo root is published on GitHub Pages, including this file
-and the scripts. Keep machine paths, emails and keys out of all of it.
+GitHub Pages serves only `index.html` and `data/` (the deploy workflow copies
+just those). The repository itself is public on GitHub, though, so this file
+and the scripts are still readable there. Keep machine paths, emails and keys
+out of all of it.
 
 ## Commands
 
