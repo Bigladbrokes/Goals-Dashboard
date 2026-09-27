@@ -105,57 +105,6 @@
       ]
     },
     {
-      "id": "p3",
-      "syncKey": null,
-      "category": "course",
-      "title": "Python Data Structures",
-      "subtitle": "",
-      "source": "Coursera",
-      "note": "",
-      "steps": [
-        {
-          "done": true,
-          "date": "2026-02-01"
-        },
-        {
-          "done": true,
-          "date": "2026-02-13"
-        },
-        {
-          "done": true,
-          "date": "2026-02-13"
-        },
-        {
-          "done": true,
-          "date": "2026-02-26"
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        }
-      ]
-    },
-    {
       "id": "p4",
       "syncKey": null,
       "category": "book",
