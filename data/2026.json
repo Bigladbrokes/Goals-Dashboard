@@ -1174,44 +1174,54 @@
       "stage": "ทำ Dashboard รวมเรดาร์ OG",
       "steps": [
         {
-          "done": false,
-          "date": null
+          "done": true,
+          "date": null,
+          "label": "ต่อ Nansen API และทำ AlphaFlow คำสั่งเดียว"
+        },
+        {
+          "done": true,
+          "date": null,
+          "label": "วัดผลสัญญาณ AlphaFlow ย้อนหลัง"
+        },
+        {
+          "done": true,
+          "date": null,
+          "label": "สร้างฐานกลุ่ม OG และจัดอันดับด้วยฝีมือ"
+        },
+        {
+          "done": true,
+          "date": null,
+          "label": "ตามเส้นทางเงินข้ามเชน (Relay, CCTP, Across, deBridge)"
+        },
+        {
+          "done": true,
+          "date": null,
+          "label": "OG Radar จับสัญญาณย้ายเวนิว + Venue Drill"
+        },
+        {
+          "done": true,
+          "date": null,
+          "label": "ขยายกลุ่มที่ตาม: Scout, OG ของ Lighter, เครือข่ายการชวน"
         },
         {
           "done": false,
-          "date": null
+          "date": null,
+          "label": "Dashboard รวมทุกอย่างในหน้าเดียว"
         },
         {
           "done": false,
-          "date": null
+          "date": null,
+          "label": "พิสูจน์ว่าสัญญาณนำหน้าเหรียญหรือแต้มที่ได้จริง"
         },
         {
           "done": false,
-          "date": null
+          "date": null,
+          "label": "ออกแบบกลยุทธ์: กฎเข้าออก ขนาดเงิน ขีดจำกัดความเสี่ยง"
         },
         {
           "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
+          "date": null,
+          "label": "ลงมือจริงด้วยเงินจำกัด แล้วทบทวนผล"
         }
       ]
     }
