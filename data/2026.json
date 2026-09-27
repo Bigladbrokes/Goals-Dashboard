@@ -360,57 +360,6 @@
       ]
     },
     {
-      "id": "p8",
-      "syncKey": null,
-      "category": "course",
-      "title": "Claude 101",
-      "subtitle": "",
-      "source": "Anthropic Academy",
-      "note": "",
-      "steps": [
-        {
-          "done": true,
-          "date": "2026-04-11"
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        },
-        {
-          "done": false,
-          "date": null
-        }
-      ]
-    },
-    {
       "id": "sync-Splinterland Bot Auto Play",
       "syncKey": "Splinterland Bot Auto Play",
       "category": "project",
