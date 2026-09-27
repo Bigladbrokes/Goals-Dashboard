@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "updatedAt": "2026-09-17",
+  "updatedAt": "2026-09-27",
   "projects": [
     {
       "id": "p1",
@@ -459,7 +459,395 @@
           "done": false,
           "date": null
         }
-      ]
+      ],
+      "roadmap": {
+        "current": {
+          "n": 4,
+          "title": "Hive posting-key auth (A1 mint step)"
+        },
+        "next": null,
+        "steps": [
+          {
+            "n": 1,
+            "title": "Build the deterministic picker",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 2,
+            "title": "Decision cache keyed on every eligibility field",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 3,
+            "title": "Read-only Splinterlands API client",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 4,
+            "title": "Hive posting-key auth (A1 mint step)",
+            "status": "unverifiable",
+            "firstSeenDone": null
+          },
+          {
+            "n": 5,
+            "title": "Remediate the review-gate process failure",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 6,
+            "title": "Survival availability: parse it, then filter on it",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 7,
+            "title": "Battle record and two-phase write-back (the cache half is withdrawn)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 8,
+            "title": "Close the two remaining cheap correctness fixes",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 9,
+            "title": "9a — LLM policy artifact (the consumer half)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 10,
+            "title": "9b — cache re-key: WITHDRAWN, the cache it would re-key no longer exists",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 11,
+            "title": "Submission layer: the PURE payload builder",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 12,
+            "title": "Refresh the two stale scenarios in scripts/gate/test_gate.py",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 13,
+            "title": "run.py orchestration loop",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 14,
+            "title": "Close the review gate's shell-path holes; narrow the *key* over-match",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 15,
+            "title": "9c — LLM policy artifact (the producer half)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 16,
+            "title": "14b — narrow the *key* over-match in the review gate",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 17,
+            "title": "11b — sign the submission transaction and POST it",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 18,
+            "title": "Patch D — the approval token's ENCODING (review-gate case 6)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 19,
+            "title": "The bot starts its own battles, and plays them back to back",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 20,
+            "title": "Gladius cards: the eligibility gate a lost battle bought",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 21,
+            "title": "Record outcomes: the bot does not know whether it won",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 22,
+            "title": "Score the abilities that win, and stop fielding an all-melee team",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 23,
+            "title": "Choose an archon that does not cap the whole team to level 1",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 24,
+            "title": "Wire in the winning-team memory, and fix the two defects that make it useless",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 25,
+            "title": "Positional rules the scorer cannot express: Martyr in front, Weapons Training beside a body it can arm",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 26,
+            "title": "One substitution in the winning-team memory, and the ranking that decides which precedent is served",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 27,
+            "title": "Attribute a battle to the tier that chose the team, and test the two loops that decide whether one starts",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 28,
+            "title": "Stop trusting the list of untested places and sweep for them",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 29,
+            "title": "14c — the mention exemption exists and has never once applied",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 30,
+            "title": "Learn from every lineup ever seen, including the ones we cannot field",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 31,
+            "title": "Play the other ladder: the Wild port, and a gym where mistakes cost energy",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 32,
+            "title": "One spelling of the ladder, and a stop-loss that reads the ladder being played",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 33,
+            "title": "null is Wild's name, and the whole Wild port had never once run in production",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 34,
+            "title": "The Gladius gate goes back to unconditional: a tripwire fired, was rewritten, and was right",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 35,
+            "title": "Stop learning the rules one refused team at a time: the game publishes the list",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 36,
+            "title": "The corpus had no code, and the endpoint had been asked the wrong question for months",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 37,
+            "title": "Retune the scorer against 310 battles, and set the magic bonus to a target instead of maximising it",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 38,
+            "title": "Where the mana goes at high caps: measured, quantified, and deliberately not fixed",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 39,
+            "title": "Three measurements: confidence measures legality, rulesets flatten abilities, and the memory quietly took over",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 40,
+            "title": "A season plan: two ladders, two scarce resources, and they do not trade",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 41,
+            "title": "A documented exemption is not a guard: no_mans_land refused a team the morning it was declared unfixable",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 42,
+            "title": "Fifteen Wild battles: 3W/11L, which is not a decline, and one ability worth adding",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 43,
+            "title": "A combo registry: which ability sets win, and which of them this collection can actually field",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 44,
+            "title": "The scorer prices a relationship for the first time: a bonus for completing a combo",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 45,
+            "title": "The archon ceiling, solved: 447 of 447, and the step that unlocked it came from a rented card",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 46,
+            "title": "The precedent tier, reviewed: the alarm was raised on a number that measured something else",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 47,
+            "title": "The stop-loss had no clock: a streak five days old halted a session after one battle",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 48,
+            "title": "Five of six units could not attack, and nothing in the program knew that was possible",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 49,
+            "title": "Core and flex: the owner's own model of how they build, and an honest 0.2-point result",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 50,
+            "title": "A second archetype, and the safe direction when it is unclear which card is the engine",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 51,
+            "title": "The owner names the support too, and a refill that spends mana must not strand a unit",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 52,
+            "title": "The archon's abilities never reached the picker, and the buff term built to follow was withdrawn on measurement",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 53,
+            "title": "Maneuvers is Reach for everyone, and a precedent claims a ruleset match it did not make",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 54,
+            "title": "Three owner observations, one survived measurement, and it merged two rules into the strongest signal yet",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 55,
+            "title": "The 27 unrecognised rulesets are a dead end, and so is every change to the ability model",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 56,
+            "title": "Step 38 answered: the optimum was between the two options anyone had tested",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 57,
+            "title": "Fallen Legends bars legendary archons, and a live battle drew it before the rule existed",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 58,
+            "title": "Two idle units in a four-card team is half of it, and the owner said so twice before the rule could see it",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 59,
+            "title": "Three more owner readings measured: two mechanically right and not worth code, one that refuted my own reasoning",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 60,
+            "title": "The game refused a team: is_eligible read the level we own, the game read the level it fields",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 61,
+            "title": "Core-and-flex made every support re-pick look like a guess, and the clever fix for it was wrong",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 62,
+            "title": "The substitution count is told rather than derived, and the place that can tell it was already holding both halves",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 63,
+            "title": "A loss the owner asked about led to the registry's missing half: there was no high-mana archetype, and the owner had said so before anyone measured it",
+            "status": "done",
+            "firstSeenDone": null
+          }
+        ]
+      },
+      "syncedAt": "2026-09-27"
     },
     {
       "id": "sync-BP-Tutor",
@@ -510,7 +898,242 @@
           "done": false,
           "date": null
         }
-      ]
+      ],
+      "roadmap": {
+        "current": {
+          "n": 9,
+          "title": "Authoring surface for stepped-solver question templates"
+        },
+        "next": {
+          "n": "9.3",
+          "title": "compute sub-form"
+        },
+        "steps": [
+          {
+            "n": 1,
+            "title": "Core quiz platform (auth, sessions, results, tokens)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 2,
+            "title": "Teacher Dashboard Phase 1",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 3,
+            "title": "Motivation layer, chapters, math keypad, MC shuffle",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 4,
+            "title": "Stepped Solver engine (steps 1-5): params, reducer, per-step UI",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 5,
+            "title": "Stepped Solver step 6: analytics + save path + Firestore rules (deployed 2026-08-07 as a side effect — see step 7)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 6,
+            "title": "Wire saveSteppedResult + SteppedQuestionRunner into the real student session flow",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 7,
+            "title": "Deploy the stepped-solver Firestore rules to production",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 8,
+            "title": "Correctness-bookkeeping consistency: derive `correct` for stepped rows everywhere it's read, instead of reading the never-persisted field directly",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 9,
+            "title": "Authoring surface for stepped-solver question templates",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": "9.1",
+            "title": "Solution Steps suppression + the \"stepped\" radio option",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": "9.2",
+            "title": "Template/params editor",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": "9.3",
+            "title": "compute sub-form",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": "9.4",
+            "title": "equationSelect sub-form",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": "9.5",
+            "title": "givens sub-form",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": "9.6",
+            "title": "rearrange sub-form + scaffold/slots validator",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": "9.7",
+            "title": "End-to-end authoring verification",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 10,
+            "title": "Pen-drawing tool on Edit Drawing (INFRASTRUCTURE ONLY — the pen is not built)",
+            "status": "in_progress",
+            "firstSeenDone": null
+          },
+          {
+            "n": 11,
+            "title": "Pen-drawing tool: the actual Apple Pencil surface",
+            "status": "in_progress",
+            "firstSeenDone": null
+          },
+          {
+            "n": 12,
+            "title": "Deferred Storage deletion — Insert/Remove destroy the PNG before the question document is saved",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 13,
+            "title": "saveSteppedResult concurrency: verify two simultaneous writers don't collide",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 14,
+            "title": "Confirm StepSummary's exclusion of stepped rows from the student-facing tally is intentional, not an accidental gap",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 15,
+            "title": "Stepped rows are entirely invisible on the teacher's Live Results view (blocked upstream by the mode filter, not by the r.correct bug fixed in step 8)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 16,
+            "title": "StepSummary renders a blank 'Your answer:' line for completed stepped questions (cosmetic rendering artifact, small, not urgent)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 17,
+            "title": "injectParams substitutes {name} inside LaTeX, so a single-letter parameter can mangle an equation in the problem text",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 18,
+            "title": "Stepped Solver: real per-step timings in the result document (was: totalTimeMs permanently null)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 19,
+            "title": "Duplicate questionIds in one session soft-lock the stepped runner (zero-fire, not double-fire) (fixed)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 20,
+            "title": "Rules: stepped shape validation is skipped for any question ID containing an underscore",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 21,
+            "title": "Stepped questions were counted per-step in the score denominator (fixed)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 22,
+            "title": "computeSessionStats read-through: five silent findings (S1-S5)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 23,
+            "title": "Correctness now keys on the question doc, not the result doc (fixed)",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 24,
+            "title": "Stepped questions emit no intermediate writes: false 'stuck' flags (S2, fixed) and invisible non-completers (S4, still open)",
+            "status": "in_progress",
+            "firstSeenDone": null
+          },
+          {
+            "n": 25,
+            "title": "Editing a question's type after completions silently zeroes the credit for those completions (guard belongs in QuestionForm)",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 26,
+            "title": "stepDurationsMs and firstStepClearedMs are written to every stepped result and read by nothing",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 27,
+            "title": "Stepped Solver: multiSelect step type",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 28,
+            "title": "Question Bank: label stepped questions correctly",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 29,
+            "title": "Guarded production import script for question documents",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 30,
+            "title": "Teacher preview: view a question as a student sees it",
+            "status": "done",
+            "firstSeenDone": null
+          }
+        ]
+      },
+      "syncedAt": "2026-09-27"
     },
     {
       "id": "sync-road-to-trader",
@@ -561,7 +1184,86 @@
           "done": false,
           "date": null
         }
-      ]
+      ],
+      "roadmap": {
+        "current": {
+          "n": 7,
+          "title": "Fix outstanding lint errors"
+        },
+        "next": {
+          "n": 8,
+          "title": "Deploy Firestore rules and hosting to the live Firebase project"
+        },
+        "steps": [
+          {
+            "n": 1,
+            "title": "Build the discipline engine",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 2,
+            "title": "Design schema and lock the stop-loss at the data layer",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 3,
+            "title": "Wire Firebase integration layer",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 4,
+            "title": "Build the React UI end-to-end",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 5,
+            "title": "Confirm the app builds for production",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 6,
+            "title": "Initialize version control",
+            "status": "done",
+            "firstSeenDone": null
+          },
+          {
+            "n": 7,
+            "title": "Fix outstanding lint errors",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 8,
+            "title": "Deploy Firestore rules and hosting to the live Firebase project",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 9,
+            "title": "Add automated tests for the Firestore security rules",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 10,
+            "title": "Manual QA pass, remote push, and CI wiring",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 11,
+            "title": "Phase 2A: Schema v2 hardening",
+            "status": "current",
+            "firstSeenDone": null
+          }
+        ]
+      },
+      "syncedAt": "2026-09-27"
     },
     {
       "id": "p9",
