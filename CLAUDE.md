@@ -79,6 +79,15 @@ Append to `projects` with the next free `pN` id:
 
 `category` is one of `course`, `book`, `project`, `other`. `stage` is
 optional; omit it rather than leaving it empty when there is nothing to say.
+
+A project without a natural 10-part shape (unlike a book's chapters) can
+carry a plan: give each step a `label`, e.g.
+`{ "done": false, "date": null, "label": "ออกแบบกลยุทธ์" }`. The viewer then
+lists the plan under "แผน 10 ขั้น" and bolds the first step not done. Labels
+are for manual entries only (the validator rejects them on synced ones).
+Steps found already done when a plan is first written get `date: null`, not
+today: nobody recorded when they were finished. When ticking steps later,
+keep their labels as they are.
 A project with a `ROADMAP_STATUS.json` should be registered in
 Roadmap-board's `projects.toml` instead (ask first), and `update.py` creates
 its entry.

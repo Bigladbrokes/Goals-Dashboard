@@ -97,6 +97,7 @@
         const s = p.steps[j];
         if (!s || typeof s !== "object" || typeof s.done !== "boolean") return `${at}.steps[${j}].done ต้องเป็น true หรือ false`;
         if (s.date != null && !isDate(s.date)) return `${at}.steps[${j}].date ต้องเป็น null หรือวันที่รูปแบบ YYYY-MM-DD`;
+        if (s.label != null && typeof s.label !== "string") return `${at}.steps[${j}].label ต้องเป็นข้อความ`;
       }
       if (p.stage != null && typeof p.stage !== "string") return `${at}.stage ต้องเป็นข้อความ`;
       if (p.roadmap != null) {
@@ -147,7 +148,7 @@
           seen: isDate(s.firstSeenDone) ? s.firstSeenDone : null
         }))
       } : null,
-      steps: p.steps.map((s) => ({ done: s.done, date: s.done && isDate(s.date) ? s.date : null }))
+      steps: p.steps.map((s) => ({ done: s.done, date: s.done && isDate(s.date) ? s.date : null, label: typeof s.label === "string" ? s.label.trim() : "" }))
     }));
   }
 
@@ -255,7 +256,7 @@
         key: i,
         className: "seg" + (s.done ? " on" : ""),
         style: { "--c": cat.color, "--d": cat.deep },
-        title: s.done ? s.date ? `${(i + 1) * 10}% เมื่อ ${fmtTH(s.date)}` : `${(i + 1) * 10}%` : `ยังไม่ถึง ${(i + 1) * 10}%`
+        title: (s.done ? s.date ? `${(i + 1) * 10}% เมื่อ ${fmtTH(s.date)}` : `${(i + 1) * 10}%` : `ยังไม่ถึง ${(i + 1) * 10}%`) + (s.label ? ` · ${s.label}` : "")
       },
       size === "lg" && h("span", null, (i + 1) * 10)
     )));
@@ -315,8 +316,10 @@
     const last = dates[dates.length - 1];
     const span = first ? daysBetween(first, st === "done" ? last : today) + 1 : null;
     const idle = st === "doing" && last ? daysBetween(last, today) : null;
+    const labeled = p.steps.some((s) => s.label);
+    const nowAt = p.steps.findIndex((s) => !s.done);
     const statusText = st === "done" ? "สำเร็จแล้ว" : st === "todo" ? "ยังไม่เริ่ม" : idle >= 30 ? `ไม่มีความคืบหน้ามา ${idle} วัน` : "กำลังทำ";
-    return h("div", { className: "detail" + (st === "done" ? " is-done" : ""), style: { "--c": cat.color, "--t": cat.tint, "--d": cat.deep } }, h("div", { className: "d-top" }, h("span", { className: "tag" }, cat.label), p.source && h("span", { className: "d-source" }, p.source)), h("h2", null, p.title), p.subtitle && h("p", { className: "d-sub" }, p.subtitle), h("div", { className: "d-progress" }, h("span", { className: "d-pct" }, c * 10, "%"), h("span", { className: "d-status" + (idle >= 30 ? " warn" : "") }, statusText)), h(Ticker, { p, size: "lg" }), h("dl", { className: "d-facts" }, h("div", null, h("dt", null, "เริ่ม"), h("dd", null, first ? fmtTH(first) : "—")), h("div", null, h("dt", null, "อัพเดตล่าสุด"), h("dd", null, last ? fmtTH(last) : "—")), h("div", null, h("dt", null, st === "done" ? "ใช้เวลา" : "ผ่านมาแล้ว"), h("dd", null, span ? `${span} วัน` : "—"))), c > 0 && !first && h("p", { className: "d-hint" }, "ช่วงที่ทำเสร็จยังไม่มีวันที่กำกับไว้ในไฟล์ข้อมูล"), p.syncKey && h("p", { className: "d-hint" }, "ซิงก์จาก Roadmap board (คีย์ ", p.syncKey, p.syncedAt ? `, ล่าสุด ${fmtTH(p.syncedAt)}` : "", ")"), p.roadmap ? h(RoadmapPanel, { rm: p.roadmap }) : p.stage && h(React.Fragment, null, h("h3", { className: "d-h" }, "ขั้นปัจจุบัน"), h("div", { className: "d-stage" }, h("div", { className: "d-stage-t" }, p.stage))), h("h3", { className: "d-h" }, "วันที่ทำถึงแต่ละช่วง"), h("ol", { className: "d-log" }, p.steps.map((s, i) => h("li", { key: i, className: s.done ? "on" : "" }, h("span", { className: "d-step" }, (i + 1) * 10, "%"), s.done ? h("span", null, s.date ? fmtTH(s.date) : "—") : h("span", { className: "d-none" }, "ยังไม่ถึง")))), p.note && h(React.Fragment, null, h("h3", { className: "d-h" }, "โน้ต"), h("p", { className: "d-note" }, p.note)));
+    return h("div", { className: "detail" + (st === "done" ? " is-done" : ""), style: { "--c": cat.color, "--t": cat.tint, "--d": cat.deep } }, h("div", { className: "d-top" }, h("span", { className: "tag" }, cat.label), p.source && h("span", { className: "d-source" }, p.source)), h("h2", null, p.title), p.subtitle && h("p", { className: "d-sub" }, p.subtitle), h("div", { className: "d-progress" }, h("span", { className: "d-pct" }, c * 10, "%"), h("span", { className: "d-status" + (idle >= 30 ? " warn" : "") }, statusText)), h(Ticker, { p, size: "lg" }), h("dl", { className: "d-facts" }, h("div", null, h("dt", null, "เริ่ม"), h("dd", null, first ? fmtTH(first) : "—")), h("div", null, h("dt", null, "อัพเดตล่าสุด"), h("dd", null, last ? fmtTH(last) : "—")), h("div", null, h("dt", null, st === "done" ? "ใช้เวลา" : "ผ่านมาแล้ว"), h("dd", null, span ? `${span} วัน` : "—"))), c > 0 && !first && h("p", { className: "d-hint" }, "ช่วงที่ทำเสร็จยังไม่มีวันที่กำกับไว้ในไฟล์ข้อมูล"), p.syncKey && h("p", { className: "d-hint" }, "ซิงก์จาก Roadmap board (คีย์ ", p.syncKey, p.syncedAt ? `, ล่าสุด ${fmtTH(p.syncedAt)}` : "", ")"), p.roadmap ? h(RoadmapPanel, { rm: p.roadmap }) : p.stage && h(React.Fragment, null, h("h3", { className: "d-h" }, "ขั้นปัจจุบัน"), h("div", { className: "d-stage" }, h("div", { className: "d-stage-t" }, p.stage))), h("h3", { className: "d-h" }, labeled ? "แผน 10 ขั้น" : "วันที่ทำถึงแต่ละช่วง"), h("ol", { className: "d-log" + (labeled ? " labeled" : "") }, p.steps.map((s, i) => h("li", { key: i, className: (s.done ? "on" : "") + (labeled && i === nowAt ? " now" : "") }, h("span", { className: "d-step" }, (i + 1) * 10, "%"), labeled && h("span", { className: "d-label" }, s.label || "—"), s.done ? h("span", { className: "d-when" }, s.date ? fmtTH(s.date) : "—") : h("span", { className: "d-none d-when" }, "ยังไม่ถึง")))), p.note && h(React.Fragment, null, h("h3", { className: "d-h" }, "โน้ต"), h("p", { className: "d-note" }, p.note)));
   }
 
   function Shell({ years, year, onYear, children }) {
@@ -638,6 +641,13 @@
 .gd .d-step{width:38px;flex:none;font-variant-numeric:tabular-nums;color:var(--muted)}
 .gd .d-log li.on .d-step{color:var(--c);font-weight:600}
 .gd .d-none{color:#A7A49C}
+.gd .d-log.labeled{grid-template-columns:1fr;gap:0}
+.gd .d-log.labeled li{align-items:baseline;min-height:0;padding:6px 0;border-bottom:1px solid var(--line)}
+.gd .d-log.labeled li:last-child{border-bottom:0}
+.gd .d-label{flex:1;min-width:0;line-height:1.45}
+.gd .d-log.labeled li:not(.on) .d-label{color:var(--muted)}
+.gd .d-log.labeled li.now .d-label{color:var(--ink);font-weight:600}
+.gd .d-log.labeled .d-when{white-space:nowrap;font-size:12.5px}
 .gd .d-note{margin:0;font-size:14.5px;white-space:pre-wrap}
 .gd summary{cursor:pointer;list-style:none}
 .gd summary::-webkit-details-marker{display:none}

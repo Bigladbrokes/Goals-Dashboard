@@ -171,6 +171,10 @@ function checkYearFile(file, data, year) {
       if (typeof s.done !== "boolean") fail(file, `${sat}.done must be true or false`);
       if (s.date != null && !isDate(s.date)) fail(file, `${sat}.date must be null or a YYYY-MM-DD date (got ${JSON.stringify(s.date)})`);
       if (s.done === false && s.date != null) fail(file, `${sat} is not done but carries a date`);
+      if (s.label != null && typeof s.label !== "string") fail(file, `${sat}.label must be a string`);
+      // Synced segments are rebuilt by update.py on every run, so a label
+      // there would silently vanish. Their step names live in roadmap.
+      if (s.label != null && isFilledString(p.syncKey)) fail(file, `${sat}.label is for manual entries; synced steps are rewritten by update.py`);
     });
   });
 }

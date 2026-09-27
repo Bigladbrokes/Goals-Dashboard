@@ -445,6 +445,34 @@ class RoadmapShapeTest(WorkspaceCase):
         self.assertEqual(r.returncode, 1)
         self.assertIn("roadmap.current", r.stderr)
 
+    @unittest.skipIf(shutil.which("node") is None, "node not installed")
+    def test_step_labels_are_for_manual_entries_only(self):
+        self.ws.add("alpha", status("alpha", "done", "todo"))
+        manual = json.loads(json.dumps(MANUAL))
+        for i, s in enumerate(manual[1]["steps"]):
+            s["label"] = f"ขั้น {i + 1}"
+        self.ws.write_data(manual)
+        outcome = self.ws.run()
+        # A sync leaves the labelled manual entry exactly as it was.
+        self.assertEqual(outcome.data["projects"][1], manual[1])
+
+        site = Path(self._tmp.name) / "site"
+        (site / "scripts").mkdir(parents=True)
+        (site / "data").mkdir()
+        shutil.copy(update.VALIDATOR, site / "scripts")
+        (site / "data" / "index.json").write_text('{"years":[2026],"default":2026}', encoding="utf-8")
+
+        def validate(data):
+            (site / "data" / "2026.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            return subprocess.run(["node", str(site / "scripts" / "validate-data.mjs")],
+                                  capture_output=True, text=True, encoding="utf-8")
+
+        self.assertEqual(validate(outcome.data).returncode, 0)
+        outcome.data["projects"][-1]["steps"][0]["label"] = "synced steps are rebuilt"
+        r = validate(outcome.data)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("label is for manual entries", r.stderr)
+
 
 # --------------------------------------------------------------------------
 

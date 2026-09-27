@@ -107,6 +107,8 @@ Rules the validator enforces:
   `subtitle`, `source`, `note` and `stage` are optional strings.
 - `stage` is free text for manual entries (where the project is now). An
   entry with a `roadmap` must not also have one.
+- A step may carry a `label` (string) naming that 10% of a manual entry's
+  plan. Synced entries must not have labels; `update.py` rebuilds their steps.
 - `roadmap` (synced entries only, written by `update.py`):
   `{ "current": {n, title} | null, "next": {n, title} | null, "steps": [...] }`.
   Each step is `{ n, title, status, firstSeenDone }`, in the status
