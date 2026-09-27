@@ -1167,11 +1167,11 @@
       "id": "p9",
       "syncKey": null,
       "category": "project",
-      "title": "AlphaFlow",
-      "subtitle": "",
-      "source": "Nansen API",
-      "note": "",
-      "stage": "ออกแบบกลยุทธ์",
+      "title": "โปรเจก Nansen",
+      "subtitle": "เรดาร์ smart money และคนวงในคริปโต",
+      "source": "Nansen API + API สาธารณะ",
+      "note": "เริ่มจาก AlphaFlow (ก.ย.): คำสั่งเดียวที่ใช้เครดิต Nansen เช็กเหรียญที่ถือ ให้คะแนนสัญญาณสะสม 10 ข้อ และกวาดหาเหรียญใหม่ที่ smart money เข้าสะสมบน Base และ Robinhood\nต่อยอดเป็น OG Radar: ตามกลุ่มคนที่มาก่อนบน Hyperliquid (closed alpha) ว่าย้ายเงินไปเวนิวหรือเชนใหม่ที่ไหน ผ่าน Relay, CCTP, Across และ deBridge ใช้ API สาธารณะ ไม่เสียเครดิต\nเครื่องมือเสริม: Scout ให้คะแนนนักบุกเบิกและทดสอบกฎเรดาร์ย้อนหลัง, Venue Drill เจาะว่าเงินที่ย้ายไปถูกใช้ทำอะไร, เก็บสำเนาหน้าเงื่อนไขแต้ม/เหรียญของโปรเจกที่ตามไว้เป็นหลักฐาน\nล่าสุด (27 ก.ย.): หน้า Dashboard รวมเรดาร์ OG โปรเจกที่เฝ้า และกระเป๋าที่ตาม",
+      "stage": "ทำ Dashboard รวมเรดาร์ OG",
       "steps": [
         {
           "done": false,
