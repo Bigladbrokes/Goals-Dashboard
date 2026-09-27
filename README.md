@@ -108,11 +108,12 @@ Rules the validator enforces:
   entry with a `roadmap` must not also have one.
 - `roadmap` (synced entries only, written by `update.py`):
   `{ "current": {n, title} | null, "next": {n, title} | null, "steps": [...] }`.
-  Each step is `{ n, title, status, detail, firstSeenDone }`, in the status
+  Each step is `{ n, title, status, firstSeenDone }`, in the status
   file's order. `current` and `next` must be the first and second steps whose
   status is not `done`/`complete`/`completed`. `firstSeenDone` is `null` or
   `YYYY-MM-DD` and only on done steps. The entry's done segments must equal
-  `floor(done steps / total * 10)`.
+  `floor(done steps / total * 10)`. Step details from the status files are
+  never published; the validator rejects a `detail` key.
 
 ## Local preview
 

@@ -57,7 +57,8 @@ function checkRoadmap(file, at, p) {
     if (!isStepNumber(s.n)) fail(file, `${sat}.n must be a number or a non-empty string`);
     if (typeof s.title !== "string") fail(file, `${sat}.title must be a string`);
     if (!isFilledString(s.status)) fail(file, `${sat}.status must be a non-empty string`);
-    if (typeof s.detail !== "string") fail(file, `${sat}.detail must be a string`);
+    // Step details are private working notes; only titles are published.
+    if ("detail" in s) fail(file, `${sat}.detail must not be published (titles only)`);
     if (s.firstSeenDone != null && !isDate(s.firstSeenDone)) fail(file, `${sat}.firstSeenDone must be null or a YYYY-MM-DD date (got ${JSON.stringify(s.firstSeenDone)})`);
     if (s.firstSeenDone != null && !isDoneStatus(s.status)) fail(file, `${sat} is not done (status ${JSON.stringify(s.status)}) but carries firstSeenDone`);
   });

@@ -41,10 +41,10 @@ TODAY = "2026-09-27"
 EARLIER = "2026-09-01"
 
 
-def status(project: str, *statuses: str, details: dict | None = None) -> dict:
+def status(project: str, *statuses: str, details: dict | None = None, titles: dict | None = None) -> dict:
     steps = []
     for i, s in enumerate(statuses, start=1):
-        steps.append({"n": i, "title": f"Step {i}", "status": s,
+        steps.append({"n": i, "title": (titles or {}).get(i, f"Step {i}"), "status": s,
                       "detail": (details or {}).get(i, f"Detail {i}"), "evidence": "commit abc1234"})
     return {"schema_version": 1, "project": project, "steps": steps}
 
@@ -391,7 +391,18 @@ class RoadmapShapeTest(WorkspaceCase):
         rm = self.ws.entry("alpha")["roadmap"]
         self.assertEqual(rm["current"], {"n": 2, "title": "Step 2"})
         self.assertEqual(rm["next"], {"n": 4, "title": "Step 4"})
-        self.assertEqual(set(rm["steps"][0]), {"n", "title", "status", "detail", "firstSeenDone"})
+        self.assertEqual(set(rm["steps"][0]), {"n", "title", "status", "firstSeenDone"})
+
+    def test_step_details_are_never_published(self):
+        # Details are private working notes. Even one the leak guard would
+        # catch must simply not reach the file.
+        secret = "PRIVATE-NOTE see C:/Users/someone/keys.txt"
+        self.ws.add("alpha", status("alpha", "done", "todo", details={1: secret, 2: secret}))
+        self.ws.write_data([])
+        outcome = self.ws.run()
+        self.assertTrue(outcome.written)
+        self.assertEqual(outcome.leaks, [])
+        self.assertNotIn("PRIVATE-NOTE", self.ws.data_path.read_bytes().decode("utf-8"))
 
     def test_all_done_has_no_current_or_next(self):
         self.ws.add("alpha", status("alpha", "done", "done"))
@@ -440,7 +451,7 @@ class RoadmapShapeTest(WorkspaceCase):
 class LeakGuardTest(WorkspaceCase):
     def test_a_planted_path_blocks_the_write(self):
         self.ws.add("alpha", status("alpha", "done", "todo",
-                                    details={2: r"Logs are in C:\Users\someone\AppData\bot.log for now."}))
+                                    titles={2: r"Move logs out of C:\Users\someone\AppData\bot.log"}))
         before = self.ws.write_data(list(MANUAL))
 
         outcome = self.ws.run()
@@ -448,13 +459,14 @@ class LeakGuardTest(WorkspaceCase):
         self.assertFalse(outcome.written)
         self.assertEqual(self.ws.data_path.read_bytes().decode("utf-8"), before)
         wheres = {leak.where for leak in outcome.leaks}
-        self.assertEqual(wheres, {"projects[2].roadmap.steps[1].detail"})
+        # Step 2 is also the current step, so its title appears twice.
+        self.assertEqual(wheres, {"projects[2].roadmap.steps[1].title", "projects[2].roadmap.current.title"})
         kinds = {leak.kind for leak in outcome.leaks}
         self.assertIn("local path (drive letter)", kinds)
         self.assertIn("local path (\\Users\\)", kinds)
 
     def test_main_stops_and_prints_the_field(self):
-        self.ws.add("alpha", status("alpha", "done", details={1: "see /home/me/notes"}))
+        self.ws.add("alpha", status("alpha", "done", titles={1: "notes in /home/me/notes"}))
         before = self.ws.write_data(list(MANUAL))
         data_dir = Path(self._tmp.name) / "data"
         data_dir.mkdir()
@@ -473,7 +485,7 @@ class LeakGuardTest(WorkspaceCase):
             code = update.main(["--roadmap-dir", str(board), "--today", TODAY])
 
         self.assertEqual(code, 2)
-        self.assertIn("projects[2].roadmap.steps[0].detail", err.getvalue())
+        self.assertIn("projects[2].roadmap.steps[0].title", err.getvalue())
         self.assertIn("/home/", err.getvalue())
         self.assertEqual((data_dir / "2026.json").read_bytes().decode("utf-8"), before)
 

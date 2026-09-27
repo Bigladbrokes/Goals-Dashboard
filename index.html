@@ -144,7 +144,6 @@
           n: s.n,
           title: s.title,
           status: s.status,
-          detail: typeof s.detail === "string" ? s.detail : "",
           seen: isDate(s.firstSeenDone) ? s.firstSeenDone : null
         }))
       } : null,
@@ -292,7 +291,7 @@
 
   function StepBlock({ label, step, full, quiet }) {
     const [text, kind] = rmStatus(full && full.status);
-    return h("div", { className: "d-stage" + (quiet ? " quiet" : "") }, h("div", { className: "d-stage-k" }, h("span", null, label, " · ขั้นที่ ", step.n), full && h("span", { className: `rm-st ${kind}` }, text)), h("div", { className: "d-stage-t" }, step.title || "—"), full && full.detail && h("details", { className: "d-more" }, h("summary", null, "รายละเอียด"), h("p", { className: "rm-detail" }, full.detail)));
+    return h("div", { className: "d-stage" + (quiet ? " quiet" : "") }, h("div", { className: "d-stage-k" }, h("span", null, label, " · ขั้นที่ ", step.n), full && h("span", { className: `rm-st ${kind}` }, text)), h("div", { className: "d-stage-t" }, step.title || "—"));
   }
 
   function RoadmapPanel({ rm }) {
@@ -303,7 +302,7 @@
     return h(React.Fragment, null, h("h3", { className: "d-h" }, "ขั้นปัจจุบัน"), rm.current ? h(StepBlock, { label: "ตอนนี้", step: rm.current, full: cur }) : h("p", { className: "d-stage done" }, "ทำครบทุกขั้นในโรดแมปแล้ว"), rm.next && h(StepBlock, { label: "ถัดไป", step: rm.next, full: nxt, quiet: true }), rm.steps.length > 0 && h("details", { className: "rm-all" }, h("summary", null, h("span", null, "ทุกขั้นในโรดแมป"), h("span", { className: "rm-all-n" }, "เสร็จ ", doneN, " จาก ", rm.steps.length, " ขั้น")), h("ol", { className: "rm-list" }, rm.steps.map((s, i) => {
       const [text, kind] = rmStatus(s.status);
       const mark = s === cur ? " now" : s === nxt ? " next" : "";
-      return h("li", { key: i, className: kind + mark }, h("details", null, h("summary", null, h("i", { className: "rm-dot" }), h("span", { className: "rm-n" }, s.n), h("span", { className: "rm-t" }, s.title || "—"), h("span", { className: `rm-st ${kind}` }, text, s.seen ? ` · ${fmtTH(s.seen)}` : "")), h("p", { className: "rm-detail" + (s.detail ? "" : " none") }, s.detail || "ไม่มีรายละเอียด")));
+      return h("li", { key: i, className: kind + mark }, h("i", { className: "rm-dot" }), h("span", { className: "rm-n" }, s.n), h("span", { className: "rm-t" }, s.title || "—"), h("span", { className: `rm-st ${kind}` }, text, s.seen ? ` · ${fmtTH(s.seen)}` : ""));
     }))));
   }
 
@@ -649,9 +648,6 @@
 .gd .d-stage.quiet .d-stage-k{color:var(--muted)}
 .gd .d-stage-t{font-weight:600;line-height:1.45;margin-top:2px}
 .gd .d-stage.quiet .d-stage-t{font-weight:500}
-.gd .d-more{margin-top:6px;font-size:13px}
-.gd .d-more summary{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
-.gd .d-more .rm-detail{margin:6px 0 0;max-height:240px;overflow:auto}
 .gd .rm-st{font-size:12px;font-weight:500;white-space:nowrap;border-radius:999px;padding:0 8px;box-shadow:inset 0 0 0 1px currentColor;color:var(--muted)}
 .gd .rm-st.done{color:var(--d)}
 .gd .rm-st.doing{color:#8E6A18}
@@ -662,20 +658,17 @@
 .gd .rm-all[open] > summary::before{transform:rotate(90deg)}
 .gd .rm-all-n{margin-left:auto;font-size:13px;font-weight:400;color:var(--muted)}
 .gd .rm-list{list-style:none;margin:8px 0 0;padding:0 4px 0 0;max-height:440px;overflow:auto}
-.gd .rm-list li{border-bottom:1px solid var(--line)}
+.gd .rm-list li{display:grid;grid-template-columns:10px 36px minmax(0,1fr) auto;gap:8px;align-items:baseline;padding:7px 4px;font-size:13.5px;line-height:1.45;border-bottom:1px solid var(--line)}
 .gd .rm-list li:last-child{border-bottom:0}
 .gd .rm-list li.now{background:linear-gradient(90deg,var(--t),rgba(0,0,0,0))}
-.gd .rm-list summary{display:grid;grid-template-columns:10px 36px minmax(0,1fr) auto;gap:8px;align-items:baseline;padding:7px 4px;font-size:13.5px;line-height:1.45}
 .gd .rm-list .rm-st{box-shadow:none;padding:0}
-.gd .rm-dot{width:9px;height:9px;border-radius:50%;background:var(--empty);align-self:center}
+.gd .rm-dot{width:9px;height:9px;border-radius:50%;background:var(--empty);align-self:start;margin-top:5px}
 .gd .rm-list li.done .rm-dot{background:var(--c)}
 .gd .rm-list li.doing .rm-dot{background:#8E6A18}
 .gd .rm-list li.warn .rm-dot{background:var(--warn)}
 .gd .rm-n{color:var(--muted);font-variant-numeric:tabular-nums}
 .gd .rm-list li.done .rm-t{color:var(--muted)}
 .gd .rm-list li.now .rm-t,.gd .rm-list li.next .rm-t{font-weight:600}
-.gd .rm-detail{margin:0 4px 10px 58px;font-size:13px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
-.gd .rm-detail.none{font-style:italic}
 .gd .inline-detail{margin:0 0 16px}
 
 /* ---- footer ---- */
@@ -699,9 +692,8 @@
   .gd .fact-v{font-size:19px}
   .gd .ring{width:112px;height:112px}
   .gd .d-log{grid-template-columns:1fr}
-  .gd .rm-list summary{grid-template-columns:10px 30px minmax(0,1fr)}
-  .gd .rm-list summary .rm-st{grid-column:3}
-  .gd .rm-detail{margin-left:4px}
+  .gd .rm-list li{grid-template-columns:10px 30px minmax(0,1fr)}
+  .gd .rm-list li .rm-st{grid-column:3}
   .gd .detail{padding:22px 16px}
 }
 @media (prefers-reduced-motion:reduce){

@@ -30,6 +30,8 @@ folder. Never write to it, including `projects.toml`, `board.html` and any
   own roadmap and arrives on the next run. `title`, `subtitle`, `category`,
   `source` and `note` are set when the entry is created and may be edited.
   A synced entry must not have a `stage` (the validator rejects it).
+  Its roadmap publishes step titles and statuses only, never the status
+  files' `detail` text (private working notes; the validator rejects it).
 - **Manual** (`syncKey: null`): books, courses, hand-kept projects. Edited by
   hand. Optional free-text `stage` says where the project is.
 

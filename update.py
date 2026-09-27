@@ -20,8 +20,9 @@ import for the same reason. tests/test_update.py asserts this.
 
 WHAT A SYNC CHANGES. Only entries whose syncKey matches a registered project.
 Their 10 segments are set from sync_goals' progress, and a "roadmap" object
-carries every step (n, title, status, detail) plus the current step (first
-not done) and the next one. Title, category, subtitle, source and note are set
+carries every step (n, title, status) plus the current step (first not
+done) and the next one. Step details are deliberately left out: they are
+working notes from private repos, and this file is public. Title, category, subtitle, source and note are set
 once, when the entry is created, and are left alone after that, so a rename
 made in the data file sticks. Entries without a syncKey are never modified,
 and the file keeps its exact layout, so they stay byte-identical.
@@ -35,7 +36,7 @@ null. A project seen for the first time gets no dates at all: its done steps
 were finished on days nobody recorded, and today would be a guess.
 
 THE LEAK GUARD. The data file is published on GitHub Pages, and roadmap
-details are free text written for a private repo. Before anything is written,
+titles are free text written for a private repo. Before anything is written,
 every string in the output is scanned for local paths, email addresses and
 key- or token-shaped strings. One hit and nothing is written; the field is
 printed instead. Reserved example domains (example.com, .test, ...) are not
@@ -178,7 +179,6 @@ def build_roadmap(sg, steps: list[dict], prev_roadmap, today: str) -> dict:
             "n": n,
             "title": _text(s.get("title")).strip(),
             "status": status,
-            "detail": _text(s.get("detail")),
             "firstSeenDone": seen,
         })
 
