@@ -1342,6 +1342,250 @@
           "label": "ตัดสินใจเรื่องขยายเหรียญทดสอบและงานเตือน OI + ข่าวสหรัฐ"
         }
       ]
+    },
+    {
+      "id": "p14",
+      "syncKey": null,
+      "category": "course",
+      "title": "Claude Code ขั้นสูง",
+      "subtitle": "AI Agent เฟส 1/4 · 8–28 ต.ค.",
+      "source": "Anthropic Academy + DeepLearning.AI + Coursera",
+      "note": "เฟสแรกของแผน upskill การใช้ AI Agent ต.ค.–ธ.ค. 2026 (4 เฟส): ใช้ Claude Code ให้เกินระดับสั่งงานทั่วไป ทั้ง hooks การจัดการ context และการรันหลาย agent ขนานกัน\nคอร์ส: Introduction to Claude Cowork และ Claude Code in Action (Anthropic Academy, ฟรี), Claude Code: A Highly Agentic Coding Assistant (DeepLearning.AI), Claude Code: Software Engineering with Generative AI Agents (Vanderbilt บน Coursera)\nงานจริง: hook ใน BP-Tutor ที่รันเทสต์อัตโนมัติ ให้การตรวจผลก่อนจบงานเป็นกฎที่ระบบบังคับ ไม่ใช่แค่คำเตือนใน prompt",
+      "steps": [
+        {
+          "done": false,
+          "date": null,
+          "label": "Introduction to Claude Cowork (Anthropic Academy)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Claude Code in Action (Anthropic Academy)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Claude Code: A Highly Agentic Coding Assistant (DeepLearning.AI)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "คอร์ส Claude Code ของ Jules White: โมดูล 1–2"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "คอร์ส Claude Code ของ Jules White: โมดูล 3–4"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "คอร์ส Claude Code ของ Jules White: โมดูล 5–6 (หลาย agent ขนานกันข้าม git branch)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ออกแบบ hook รันเทสต์อัตโนมัติสำหรับ BP-Tutor"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ติดตั้ง hook แล้วลองกับงานจริง 1 งาน"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เกณฑ์ผ่าน: เทสต์แดงแล้ว Claude Code จบงานหรือ commit ไม่ได้"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ใช้ hook ต่อเนื่อง 1 สัปดาห์ แล้วปรับให้ลงตัว"
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "syncKey": null,
+      "category": "course",
+      "title": "Subagents และ Skills",
+      "subtitle": "AI Agent เฟส 2/4 · 29 ต.ค.–11 พ.ย.",
+      "source": "Anthropic Academy",
+      "note": "เฟส 2/4: ย้ายกฎที่พิมพ์ซ้ำทุก prompt ไปไว้ใน skill และแบ่งงานให้ subagent ที่มี context แยกของตัวเอง\nคอร์ส: Introduction to subagents และ Introduction to agent skills (Anthropic Academy, ฟรี)\nงานจริง: skill เดียวใช้ร่วม 3 โปรเจกต์ (อ่านไฟล์สถานะก่อน, เชื่อไฟล์มากกว่าความจำ, ตรวจก่อนลงมือ) และ subagent รีวิวโค้ดแบบอ่านอย่างเดียว",
+      "steps": [
+        {
+          "done": false,
+          "date": null,
+          "label": "Introduction to subagents (Anthropic Academy)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Introduction to agent skills (Anthropic Academy)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "รวบรวมกฎที่พิมพ์ซ้ำใน prompt ของทั้ง 3 โปรเจกต์"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เขียน skill: อ่านไฟล์สถานะก่อน, เชื่อไฟล์มากกว่าความจำ, ตรวจก่อนลงมือ"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ใช้ skill กับ BP-Tutor ในงานจริง"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ขยาย skill ไป splinter-bot และ Road to Trader"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ปรับ description ให้ skill ถูกเรียกใช้ถูกจังหวะ"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "สร้าง subagent รีวิวโค้ดแบบอ่านอย่างเดียว"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ให้ subagent รีวิวงานจริง แล้วปรับคำสั่ง"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เกณฑ์ผ่าน: prompt ที่ส่งให้ Claude Code สั้นลงชัดเจน เพราะกฎย้ายไปอยู่ใน skill"
+        }
+      ]
+    },
+    {
+      "id": "p16",
+      "syncKey": null,
+      "category": "course",
+      "title": "MCP ของตัวเอง",
+      "subtitle": "AI Agent เฟส 3/4 · 12 พ.ย.–2 ธ.ค.",
+      "source": "Anthropic Academy",
+      "note": "เฟส 3/4: เขียน MCP server ของตัวเอง ให้ Claude ดึงข้อมูลจากโปรเจกต์ได้โดยตรง\nคอร์ส: Introduction to Model Context Protocol และ Model Context Protocol: Advanced Topics (Anthropic Academy, ฟรี)\nงานจริง: MCP server ของ Road to Trader ที่ตอบสถิติ trade และ edge ได้ ต่อเข้าทั้ง Claude Code และแอป Claude",
+      "steps": [
+        {
+          "done": false,
+          "date": null,
+          "label": "Introduction to Model Context Protocol (Anthropic Academy)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Model Context Protocol: Advanced Topics (Anthropic Academy)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ออกแบบเครื่องมือ: Claude ต้องถามอะไรจาก Road to Trader ได้บ้าง"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เขียน server อ่านข้อมูล trade"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เพิ่มเครื่องมือคำนวณสถิติและ edge"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ทดสอบด้วย MCP Inspector"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ต่อเข้า Claude Code"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ต่อเข้าแอป Claude"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เกณฑ์ผ่าน: ถาม \"edge ของ setup X เดือนนี้\" แล้วได้ตัวเลขจาก server จริง"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ใช้ต่อเนื่อง 1 สัปดาห์ แล้วเติมเครื่องมือที่ขาด"
+        }
+      ]
+    },
+    {
+      "id": "p17",
+      "syncKey": null,
+      "category": "course",
+      "title": "Multi-agent และ Evals",
+      "subtitle": "AI Agent เฟส 4/4 · 3–30 ธ.ค.",
+      "source": "DeepLearning.AI + Udemy",
+      "note": "เฟส 4/4: รูปแบบการออกแบบ agent (reflection, tool use, planning, multi-agent) การคุมทีม agent และการวัดผลด้วย evals\nคอร์ส: Agentic AI (Andrew Ng, DeepLearning.AI) และ AI Coder: Complete Claude Code & Coding Agents Course (Ed Donner, Udemy)\nงานจริง: ชุด eval ของ splinter-bot จากสถานะการต่อสู้จริงราว 30 กรณี ใช้วัด decision pipeline ทุกครั้งที่แก้\nต่อปี 2027: Building with the Claude API แล้ว AI Engineer Agentic Track (Ed Donner) สำหรับสร้าง agent ในผลิตภัณฑ์",
+      "steps": [
+        {
+          "done": false,
+          "date": null,
+          "label": "Agentic AI: โมดูล 1–2 (ภาพรวม, reflection)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Agentic AI: โมดูล 3 (tool use)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Agentic AI: โมดูล 4–5 (evals, error analysis, planning, multi-agent)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "AI Coder: skills, MCP, hooks และ plugins"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "AI Coder: ทีม agent (sub-agents, swarms, orchestrators, Agent Teams)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "AI Coder: โปรเจกต์ปิดท้าย"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เก็บสถานะการต่อสู้จริงของ splinter-bot ราว 30 กรณี พร้อมคำตอบที่ควรได้"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เขียนตัวรัน eval ให้คะแนน decision pipeline"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "วัดคะแนนตั้งต้นของ pipeline ปัจจุบัน"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เกณฑ์ผ่าน: ทุก PR ของ splinter-bot มีคะแนน eval ก่อนและหลังแก้"
+        }
+      ]
     }
   ]
 }
