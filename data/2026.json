@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "updatedAt": "2026-09-27",
+  "updatedAt": "2026-10-08",
   "projects": [
     {
       "id": "p1",
@@ -363,7 +363,10 @@
           "n": 4,
           "title": "Hive posting-key auth (A1 mint step)"
         },
-        "next": null,
+        "next": {
+          "n": 64,
+          "title": "Wild team study 1/7: pull the account history and rebuild the lineup archive before the window rolls"
+        },
         "steps": [
           {
             "n": 1,
@@ -742,10 +745,52 @@
             "title": "A loss the owner asked about led to the registry's missing half: there was no high-mana archetype, and the owner had said so before anyone measured it",
             "status": "done",
             "firstSeenDone": null
+          },
+          {
+            "n": 64,
+            "title": "Wild team study 1/7: pull the account history and rebuild the lineup archive before the window rolls",
+            "status": "unverifiable",
+            "firstSeenDone": null
+          },
+          {
+            "n": 65,
+            "title": "Wild team study 2/7: group the 68 Wild rules into 8-10 families and the mana cap into 6 bands",
+            "status": "done",
+            "firstSeenDone": "2026-10-08"
+          },
+          {
+            "n": 66,
+            "title": "Wild team study 3/7: a coverage report, battles per cell per source, no network",
+            "status": "done",
+            "firstSeenDone": "2026-10-08"
+          },
+          {
+            "n": 67,
+            "title": "Wild team study 4/7: harvest Top Battles only for the cells that are short, within the agreed quota",
+            "status": "done",
+            "firstSeenDone": "2026-10-08"
+          },
+          {
+            "n": 68,
+            "title": "Wild team study 5/7: analyse each cell and write team book v1",
+            "status": "current",
+            "firstSeenDone": null
+          },
+          {
+            "n": 69,
+            "title": "Wild team study 6/7: forward test of team book v1 on battles after the lock date",
+            "status": "todo",
+            "firstSeenDone": null
+          },
+          {
+            "n": 70,
+            "title": "Wild team study 7/7: decide separately whether the picker and precedent memory should use team book v1",
+            "status": "unverifiable",
+            "firstSeenDone": null
           }
         ]
       },
-      "syncedAt": "2026-09-27"
+      "syncedAt": "2026-10-08"
     },
     {
       "id": "sync-BP-Tutor",
