@@ -1395,27 +1395,17 @@
       "title": "Claude Code ขั้นสูง",
       "subtitle": "AI Agent เฟส 1/4 · 8–28 ต.ค.",
       "source": "Anthropic Academy + DeepLearning.AI + Coursera",
-      "note": "เฟสแรกของแผน upskill การใช้ AI Agent ต.ค.–ธ.ค. 2026 (4 เฟส): ใช้ Claude Code ให้เกินระดับสั่งงานทั่วไป ทั้ง hooks การจัดการ context และการรันหลาย agent ขนานกัน\nคอร์ส: Introduction to Claude Cowork และ Claude Code in Action (Anthropic Academy, ฟรี), Claude Code: A Highly Agentic Coding Assistant (DeepLearning.AI), Claude Code: Software Engineering with Generative AI Agents (Vanderbilt บน Coursera)\nงานจริง: hook ใน BP-Tutor ที่รันเทสต์อัตโนมัติ ให้การตรวจผลก่อนจบงานเป็นกฎที่ระบบบังคับ ไม่ใช่แค่คำเตือนใน prompt",
+      "note": "เฟสแรกของแผน upskill การใช้ AI Agent ต.ค.–ธ.ค. 2026 (4 เฟส): ใช้ Claude Code ให้เกินระดับสั่งงานทั่วไป ทั้ง hooks การจัดการ context และการรันหลาย agent ขนานกัน\nลำดับเรียน: 1) Introduction to Claude Cowork 2) Jules White (พื้นฐาน) 3) DeepLearning.AI (ทบทวน) 4) Claude Code in Action (ขั้นสูง ก่อนทำ hook)\nลิงก์: Introduction to Claude Cowork https://anthropic.skilljar.com/introduction-to-claude-cowork\nClaude Code: Software Engineering with Generative AI Agents (Vanderbilt, Jules White) https://www.coursera.org/learn/claude-code\nClaude Code: A Highly Agentic Coding Assistant (DeepLearning.AI) https://www.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant\nClaude Code in Action https://anthropic.skilljar.com/claude-code-in-action (หรือบน Coursera https://www.coursera.org/learn/claude-code-in-action)\nงานจริง: hook ใน BP-Tutor ที่รันเทสต์อัตโนมัติ ให้การตรวจผลก่อนจบงานเป็นกฎที่ระบบบังคับ ไม่ใช่แค่คำเตือนใน prompt",
       "steps": [
         {
           "done": false,
           "date": null,
-          "label": "Introduction to Claude Cowork (Anthropic Academy)"
+          "label": "Introduction to Claude Cowork (Anthropic Academy): ดูภาพรวมสั้นๆ ก่อน"
         },
         {
           "done": false,
           "date": null,
-          "label": "Claude Code in Action (Anthropic Academy)"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "Claude Code: A Highly Agentic Coding Assistant (DeepLearning.AI)"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "คอร์ส Claude Code ของ Jules White: โมดูล 1–2"
+          "label": "คอร์ส Claude Code ของ Jules White: โมดูล 1–2 (พื้นฐาน, CLAUDE.md)"
         },
         {
           "done": false,
@@ -1426,6 +1416,16 @@
           "done": false,
           "date": null,
           "label": "คอร์ส Claude Code ของ Jules White: โมดูล 5–6 (หลาย agent ขนานกันข้าม git branch)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Claude Code: A Highly Agentic Coding Assistant (DeepLearning.AI): ทบทวน + MCP, hooks, GitHub"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "Claude Code in Action (Anthropic Academy): hooks, skills, ทำงานแบบไม่ต้องคุม ก่อนลงมือทำ hook"
         },
         {
           "done": false,
@@ -1456,17 +1456,17 @@
       "title": "Subagents และ Skills",
       "subtitle": "AI Agent เฟส 2/4 · 29 ต.ค.–11 พ.ย.",
       "source": "Anthropic Academy",
-      "note": "เฟส 2/4: ย้ายกฎที่พิมพ์ซ้ำทุก prompt ไปไว้ใน skill และแบ่งงานให้ subagent ที่มี context แยกของตัวเอง\nคอร์ส: Introduction to subagents และ Introduction to agent skills (Anthropic Academy, ฟรี)\nงานจริง: skill เดียวใช้ร่วม 3 โปรเจกต์ (อ่านไฟล์สถานะก่อน, เชื่อไฟล์มากกว่าความจำ, ตรวจก่อนลงมือ) และ subagent รีวิวโค้ดแบบอ่านอย่างเดียว",
+      "note": "เฟส 2/4: ย้ายกฎที่พิมพ์ซ้ำทุก prompt ไปไว้ใน skill และแบ่งงานให้ subagent ที่มี context แยกของตัวเอง\nลำดับเรียน: Introduction to agent skills ก่อน แล้ว Introduction to subagents (Anthropic Academy, ฟรี)\nลิงก์: https://anthropic.skilljar.com/introduction-to-agent-skills · https://anthropic.skilljar.com/introduction-to-subagents\nงานจริง: skill เดียวใช้ร่วม 3 โปรเจกต์ (อ่านไฟล์สถานะก่อน, เชื่อไฟล์มากกว่าความจำ, ตรวจก่อนลงมือ) และ subagent รีวิวโค้ดแบบอ่านอย่างเดียว",
       "steps": [
         {
           "done": false,
           "date": null,
-          "label": "Introduction to subagents (Anthropic Academy)"
+          "label": "Introduction to agent skills (Anthropic Academy)"
         },
         {
           "done": false,
           "date": null,
-          "label": "Introduction to agent skills (Anthropic Academy)"
+          "label": "Introduction to subagents (Anthropic Academy)"
         },
         {
           "done": false,
@@ -1517,7 +1517,7 @@
       "title": "MCP ของตัวเอง",
       "subtitle": "AI Agent เฟส 3/4 · 12 พ.ย.–2 ธ.ค.",
       "source": "Anthropic Academy",
-      "note": "เฟส 3/4: เขียน MCP server ของตัวเอง ให้ Claude ดึงข้อมูลจากโปรเจกต์ได้โดยตรง\nคอร์ส: Introduction to Model Context Protocol และ Model Context Protocol: Advanced Topics (Anthropic Academy, ฟรี)\nงานจริง: MCP server ของ Road to Trader ที่ตอบสถิติ trade และ edge ได้ ต่อเข้าทั้ง Claude Code และแอป Claude",
+      "note": "เฟส 3/4: เขียน MCP server ของตัวเอง ให้ Claude ดึงข้อมูลจากโปรเจกต์ได้โดยตรง\nคอร์ส: Introduction to Model Context Protocol และ Model Context Protocol: Advanced Topics (Anthropic Academy, ฟรี) เรียนตามลำดับนี้\nลิงก์: https://anthropic.skilljar.com/introduction-to-model-context-protocol · https://anthropic.skilljar.com/model-context-protocol-advanced-topics\nงานจริง: MCP server ของ Road to Trader ที่ตอบสถิติ trade และ edge ได้ ต่อเข้าทั้ง Claude Code และแอป Claude",
       "steps": [
         {
           "done": false,
@@ -1578,7 +1578,7 @@
       "title": "Multi-agent และ Evals",
       "subtitle": "AI Agent เฟส 4/4 · 3–30 ธ.ค.",
       "source": "DeepLearning.AI + Udemy",
-      "note": "เฟส 4/4: รูปแบบการออกแบบ agent (reflection, tool use, planning, multi-agent) การคุมทีม agent และการวัดผลด้วย evals\nคอร์ส: Agentic AI (Andrew Ng, DeepLearning.AI) และ AI Coder: Complete Claude Code & Coding Agents Course (Ed Donner, Udemy)\nงานจริง: ชุด eval ของ splinter-bot จากสถานะการต่อสู้จริงราว 30 กรณี ใช้วัด decision pipeline ทุกครั้งที่แก้\nต่อปี 2027: Building with the Claude API แล้ว AI Engineer Agentic Track (Ed Donner) สำหรับสร้าง agent ในผลิตภัณฑ์",
+      "note": "เฟส 4/4: รูปแบบการออกแบบ agent (reflection, tool use, planning, multi-agent) การคุมทีม agent และการวัดผลด้วย evals\nคอร์ส: Agentic AI (Andrew Ng, DeepLearning.AI) และ AI Coder: Complete Claude Code & Coding Agents Course (Ed Donner, Udemy) เรียน Agentic AI ก่อน แล้วค่อย AI Coder\nลิงก์ Agentic AI: https://www.deeplearning.ai/courses/agentic-ai\nงานจริง: ชุด eval ของ splinter-bot จากสถานะการต่อสู้จริงราว 30 กรณี ใช้วัด decision pipeline ทุกครั้งที่แก้\nต่อปี 2027: Building with the Claude API แล้ว AI Engineer Agentic Track (Ed Donner) สำหรับสร้าง agent ในผลิตภัณฑ์",
       "steps": [
         {
           "done": false,
