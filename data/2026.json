@@ -1631,6 +1631,68 @@
           "label": "เกณฑ์ผ่าน: ทุก PR ของ splinter-bot มีคะแนน eval ก่อนและหลังแก้"
         }
       ]
+    },
+    {
+      "id": "p18",
+      "syncKey": null,
+      "category": "project",
+      "title": "Elliott-RAG",
+      "subtitle": "ถามตอบจากคลิปสอน Elliott Wave ด้วย Local AI",
+      "source": "Ollama (bge-m3 + Qwen3) + ChromaDB",
+      "note": "ใช้ซับภาษาอังกฤษของคอร์ส Elliott Wave International 32 คลิป (1,751 ท่อน) ถามเป็นภาษาไทยได้ ระบบค้นท่อนที่เกี่ยวข้องแล้วให้โมเดลตอบพร้อมอ้างอิงคลิปและเวลา ไม่ได้ทำให้โมเดลฉลาดขึ้น แค่ค้นข้อความจากซับ คำตอบเป็น \"สิ่งที่คลิปพูด\" ไม่ใช่กลยุทธ์ที่พิสูจน์แล้วว่าทำกำไร",
+      "stage": "ใช้ใน terminal ได้แล้ว ยังไม่ได้ตรวจคำตอบกับคลิปจริง",
+      "steps": [
+        {
+          "done": true,
+          "date": null,
+          "label": "สร้าง index จากซับ .srt 32 คลิป (bge-m3 + ChromaDB)"
+        },
+        {
+          "done": true,
+          "date": null,
+          "label": "ค้นแบบ hybrid (vector + BM25 + RRF) ตอบไทยพร้อมอ้างอิงคลิปและเวลา"
+        },
+        {
+          "done": true,
+          "date": null,
+          "label": "เพิ่ม relevance filter, รวมท่อนติดกัน และกรองตามหมวด"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ทดสอบ 5–10 คำถามที่รู้คำตอบ แล้วตรวจกับคลิปจริง"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ปรับค่าตัดความเกี่ยวข้องตามผลทดสอบ"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ทำชุดคำถามทดสอบ (eval) วัดคุณภาพก่อนและหลังแก้"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "แก้เคสค้นพลาด (เช่น Fibonacci) ด้วย reranker"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ตรวจว่ามีซับครบทุกคลิป (ลำดับขาดเลข 1 และ 22)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ทำหน้าแชทเว็บแทน terminal"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ทดลองกลยุทธ์จากคลิปในบัญชีเดโมหรือ backtest ก่อนใช้เงินจริง"
+        }
+      ]
     }
   ]
 }
