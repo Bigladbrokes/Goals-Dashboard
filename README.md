@@ -1,17 +1,17 @@
 # Goals dashboard
 
-A read-only viewer for my multi-year goals, published on GitHub Pages. Plain
-static files — no build step, no bundler. `index.html` loads React from a CDN
-and renders whatever is in `data/`.
+A read-only viewer for my multi-year goals. Plain static files — no build
+step, no bundler. `index.html` loads React from a CDN and renders whatever is
+in `data/`. The GitHub Pages site was retired on 2026-10-23; the viewer is
+opened locally (see *Local preview*) or from a private copy.
 
 ```
 index.html              the viewer (self-contained)
 data/index.json         which years exist
 data/<year>.json        one file per year — the only source of data
-scripts/validate-data.mjs  shape check, run in CI before deploy
+scripts/validate-data.mjs  shape check, run by update.py before committing
 update.py               roadmap sync + validate + commit + push
 tests/                  tests for update.py
-.github/workflows/deploy.yml
 ```
 
 ## Viewing
@@ -53,13 +53,6 @@ and point `default` at it:
   "default": 2027
 }
 ```
-
-The Pages workflow validates `data/` again before deploying, so a malformed
-file never goes live. It publishes only `index.html` and `data/`; the scripts,
-tests and notes stay in the repository.
-
-One-time setup: in the repo's *Settings → Pages*, set **Source** to
-**GitHub Actions**.
 
 ## Data shape
 

@@ -6,10 +6,10 @@ import or export step: every change is an edit to the data file (manual
 entries) or a run of `update.py` (roadmap projects), and `update.py` commits
 and pushes.
 
-GitHub Pages serves only `index.html` and `data/` (the deploy workflow copies
-just those). The repository itself is public on GitHub, though, so this file
-and the scripts are still readable there. Keep machine paths, emails and keys
-out of all of it.
+There is no published site any more: the GitHub Pages deploy was retired on
+2026-10-23. The repository itself is still public on GitHub, so the data,
+this file and the scripts are readable there. Keep machine paths, emails and
+keys out of all of it.
 
 ## Commands
 

@@ -2,8 +2,8 @@
 /**
  * Validates every file in data/ against the shape index.html renders.
  * Run: node scripts/validate-data.mjs
- * Exits 1 and prints every problem found, so a malformed file fails the build
- * before it is deployed.
+ * Exits 1 and prints every problem found; update.py runs it and refuses to
+ * commit a malformed file.
  */
 import { readFile, readdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";

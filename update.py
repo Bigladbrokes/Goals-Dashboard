@@ -35,7 +35,7 @@ whatever it had, which for everything done before this script existed is
 null. A project seen for the first time gets no dates at all: its done steps
 were finished on days nobody recorded, and today would be a guess.
 
-THE LEAK GUARD. The data file is published on GitHub Pages, and roadmap
+THE LEAK GUARD. The data file is public in this repository, and roadmap
 titles are free text written for a private repo. Before anything is written,
 every string in the output is scanned for local paths, email addresses and
 key- or token-shaped strings. One hit and nothing is written; the field is
