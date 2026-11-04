@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "updatedAt": "2026-10-08",
+  "updatedAt": "2026-11-04",
   "projects": [
     {
       "id": "p1",
@@ -787,10 +787,28 @@
             "title": "Wild team study 7/7: decide separately whether the picker and precedent memory should use team book v1",
             "status": "unverifiable",
             "firstSeenDone": null
+          },
+          {
+            "n": 71,
+            "title": "Preflight: a ladder allowlist and a final team check, written apart from the assembly paths",
+            "status": "done",
+            "firstSeenDone": "2026-11-04"
+          },
+          {
+            "n": 72,
+            "title": "Bracket tripwire: a settled Survival battle in bracket I-VI writes STOP, and STOP halts the loop",
+            "status": "done",
+            "firstSeenDone": "2026-11-04"
+          },
+          {
+            "n": 73,
+            "title": "Wire preflight into the runner: refuse and HALT before the submit",
+            "status": "done",
+            "firstSeenDone": "2026-11-04"
           }
         ]
       },
-      "syncedAt": "2026-10-08"
+      "syncedAt": "2026-11-04"
     },
     {
       "id": "sync-BP-Tutor",
@@ -1611,8 +1629,8 @@
           "label": "ทำชุดคำถามทดสอบ (eval) 20–30 ข้อ พร้อมแหล่งที่ถูก และข้อที่ต้องตอบว่าไม่พบ"
         },
         {
-          "done": false,
-          "date": null,
+          "done": true,
+          "date": "2026-11-04",
           "label": "ปรับ ingest ให้เพิ่มข้อมูลโดยไม่ลบของเดิม ติดป้ายคอร์สและผู้สอน แก้ ID ซ้ำ"
         },
         {
