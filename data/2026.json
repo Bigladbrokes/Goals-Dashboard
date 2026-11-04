@@ -1707,52 +1707,52 @@
         {
           "done": true,
           "date": "2026-10-23",
-          "label": "ดึง bookmark ทั้งหมดจาก X (124 รายการ)"
+          "label": "[A รายงาน] ดึง bookmark ทั้งหมดจาก X (124 รายการ)"
         },
         {
           "done": true,
           "date": "2026-10-23",
-          "label": "อ่านบทความเต็มและเธรดที่ bookmark อ้างถึง"
+          "label": "[A รายงาน] อ่านบทความเต็มและเธรดที่ bookmark อ้างถึง"
         },
         {
           "done": true,
           "date": "2026-10-23",
-          "label": "ตรวจข้อเท็จจริงเครื่องมือและคำอ้าง 15 เรื่อง"
+          "label": "[A รายงาน] ตรวจข้อเท็จจริงเครื่องมือและคำอ้าง 15 เรื่อง"
         },
         {
           "done": true,
           "date": "2026-10-23",
-          "label": "ทำหน้ารายงานภาษาไทย: 8 แนวคิด AI และดัชนีค้นหาได้"
+          "label": "[A รายงาน] ทำหน้ารายงานภาษาไทย: 8 แนวคิด AI และดัชนีค้นหาได้"
         },
         {
           "done": true,
           "date": "2026-10-23",
-          "label": "ตั้ง Second Brain (raw/, wiki/, CLAUDE.md) แล้ว ingest bookmark ชุดนี้"
+          "label": "[A รายงาน] ตั้ง Second Brain (raw/, wiki/, CLAUDE.md) แล้ว ingest bookmark ชุดนี้"
         },
         {
           "done": false,
           "date": null,
-          "label": "ย้ายขั้นตอนจาก CLAUDE.md ไปเป็น skills และทำ /source-only, /spec-first, /diff-only, /pass-fail"
+          "label": "[B ทดลอง] ย้ายขั้นตอนจาก CLAUDE.md ไปเป็น skills และทำ /source-only, /spec-first, /diff-only, /pass-fail"
         },
         {
           "done": false,
           "date": null,
-          "label": "ลอง /advisor กับงานยาว แล้วเทียบผลใน /usage"
+          "label": "[B ทดลอง] ลอง /advisor กับงานยาว แล้วเทียบผลใน /usage (ตั้งค่าแล้ว 2026-11-04 ยังไม่ได้ทดลองและประเมิน)"
         },
         {
           "done": false,
           "date": null,
-          "label": "ใช้ /goal กับงานที่นิยามคำว่าเสร็จได้ชัด"
+          "label": "[B ทดลอง] ใช้ /goal กับงานที่นิยามคำว่าเสร็จได้ชัด"
         },
         {
           "done": false,
           "date": null,
-          "label": "ลอง skill anatomy หรือ HyperFrames ทำสื่ออธิบาย 1 เรื่อง"
+          "label": "[B ทดลอง] ลอง skill anatomy หรือ HyperFrames ทำสื่ออธิบาย 1 เรื่อง"
         },
         {
           "done": false,
           "date": null,
-          "label": "ดึง bookmark ใหม่ทุกเดือนแล้วอัปเดตรายงาน"
+          "label": "[C งานประจำ] ดึง bookmark ใหม่ทุกเดือนแล้วอัปเดตรายงาน"
         }
       ]
     },
