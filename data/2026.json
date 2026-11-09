@@ -1713,68 +1713,6 @@
       ]
     },
     {
-      "id": "p20",
-      "syncKey": null,
-      "category": "project",
-      "title": "Twitter Bookmark",
-      "subtitle": "รายงานภาษาไทยสรุป bookmark บน X ทั้ง 124 รายการ (รอบแรก)",
-      "source": "X Bookmarks + Claude in Chrome + Claude Code",
-      "note": "ดึง bookmark จากหน้า Bookmarks ของ X ครบ 124 รายการ (อ่านได้ 120 ถูกลบหรือซ่อน 4) แล้วจัดหมวด: AI 63, คริปโตและลงทุน 25, อาหารและไลฟ์สไตล์ 18, สุขภาพ 6, วิทยาศาสตร์ 6, อื่นๆ 2 เดือน ต.ค. 2026 มี 76 โพสต์ เป็นเรื่อง AI 51\nหน้ารายงานภาษาไทย (artifact ส่วนตัว): สรุป 1 นาที, กราฟหมวดและช่วงเวลา, อธิบาย 8 แนวคิด AI ที่เจอซ้ำ (Second Brain, ความจำข้ามเซสชัน, แยกงานคิด/ตัดสินใจ/ลงมือ, harness, loop, graph engineering, skills, สื่อจากโค้ด), ตารางตรวจข้อเท็จจริง 15 เรื่อง, รูปแบบโพสต์เรียกยอด และดัชนีที่ค้นหาได้\nผลตรวจ: เครื่องมือที่โพสต์อ้างส่วนใหญ่มีจริง (graphify, REA, HyperFrames, /batch, /goal, --advisor) แต่ --subagents ไม่มีในเอกสาร CLI และเรื่องเล่าทำเงินหลายเรื่องตรวจไม่ได้",
-      "stage": "ส่งมอบรายงานรอบแรกแล้ว 23 ต.ค. 2026 ตรวจรับหน้าจริงและกู้คืนเวอร์ชันยังค้างใน task.md งานต่อแยกไปที่ p22",
-      "steps": [
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "เปิดหน้า x.com/i/history แท็บ Bookmarks"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "ดึงข้อมูลผ่าน API ของหน้าเว็บ 124 รายการ (ใช้ไม่ได้ 4)"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "ตรวจสถานะครบ 124 รายการ อ่านเนื้อหาได้ 120"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "อ่านบทความเต็ม 6 ชิ้นและเธรด 2 ชุด"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "ตรวจข้อเท็จจริงเครื่องมือและคำอ้าง 15 เรื่อง"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "จัดกลุ่มหัวข้อ (AI 63, คริปโต 25, ไลฟ์สไตล์ 18 ฯลฯ)"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "เขียนรายงานภาษาไทย: 8 แนวคิด AI และดัชนีค้นหาได้"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "เผยแพร่รายงานเป็น artifact ส่วนตัว"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "เก็บข้อความ bookmark 124 รายการเป็นไฟล์ดิบ (raw)"
-        },
-        {
-          "done": true,
-          "date": "2026-10-23",
-          "label": "ตั้ง Second Brain (wiki 27 หน้า) แล้ว ingest bookmark ชุดนี้"
-        }
-      ]
-    },
-    {
       "id": "p21",
       "syncKey": null,
       "category": "project",
@@ -1837,68 +1775,6 @@
       ]
     },
     {
-      "id": "p22",
-      "syncKey": null,
-      "category": "project",
-      "title": "Twitter Bookmark: ทดลองและงานประจำ",
-      "subtitle": "ทดลองเครื่องมือจากความรู้ใน bookmark และดึงข้อมูลใหม่รายเดือน",
-      "source": "X Bookmarks + Claude Code",
-      "note": "แยกจาก p20 เมื่อ 2026-11-04 (ขั้น 6-10 เดิม) ชุดทดลองต้องมีผลประเมิน ไม่ใช่แค่เรียกใช้ งานรายเดือนต้องตรวจความครบก่อนทุกรอบ",
-      "stage": "ตั้งค่า advisor แล้ว ยังไม่ได้ทดลองกับงานยาว",
-      "steps": [
-        {
-          "done": true,
-          "date": "2026-11-04",
-          "label": "ตั้ง advisorModel: opus ถาวร (ตั้งค่า ยังไม่ใช่ผลทดลอง)"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "ลอง /advisor กับงานยาว แล้วเทียบผลใน /usage"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "ย้ายขั้นตอนจาก CLAUDE.md ไปเป็น skills: /source-only, /spec-first, /diff-only, /pass-fail"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "ใช้ /goal กับงานที่นิยามคำว่าเสร็จได้ชัด"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "ลอง skill anatomy หรือ HyperFrames ทำสื่ออธิบาย 1 เรื่อง"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "สรุปผลการทดลองแต่ละอย่าง: ช่วยให้งานดีขึ้นอย่างไร"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "กำหนดโครงสร้าง JSON ข้อมูลดิบ (id, url, text, fetched_at, access_status, category)"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "export ข้อมูลดิบเป็น JSON (ขออนุญาตดาวน์โหลดก่อน)"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "ทำขั้นตอนดึง bookmark รายเดือน พร้อมตรวจ ID ซ้ำและความครบ"
-        },
-        {
-          "done": false,
-          "date": null,
-          "label": "รันรอบรายเดือนรอบแรกและอัปเดตรายงาน"
-        }
-      ]
-    },
-    {
       "id": "p23",
       "syncKey": null,
       "category": "project",
@@ -1957,6 +1833,68 @@
           "done": false,
           "date": null,
           "label": "ทดสอบสัญญาณเสริมทีละตัว หรือยุติ"
+        }
+      ]
+    },
+    {
+      "id": "p24",
+      "syncKey": null,
+      "category": "project",
+      "title": "แผนที่ Bookmark",
+      "subtitle": "อ่าน bookmark บน X ทีละรายการ ตัดสินใจบันทึกหรือลบ",
+      "source": "X Bookmarks + Claude in Chrome + Claude Code",
+      "note": "เริ่มใหม่ 2026-11-09 แทน Twitter Bookmark (p20) และงานทดลอง (p22) แผนที่เป็นหน้าเว็บในเครื่อง bookmark ที่มีประโยชน์กดบันทึกลง Hub แล้วลบ ส่วนที่ไม่มีประโยชน์หรือซ้ำกดลบได้เลย ปุ่มลบลงคิวก่อน Claude ลบบน X ให้หลังผู้ใช้ยืนยัน",
+      "stage": "เริ่มงาน",
+      "steps": [
+        {
+          "done": true,
+          "date": "2026-11-09",
+          "label": "ลบข้อมูลโปรเจกต์เดิม (p20, p22)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ดึง bookmark ใหม่ทั้งหมดจาก X"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "สร้างแผนที่ Bookmark (หน้าเว็บในเครื่อง)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ปุ่มบันทึก ลบ ข้าม ในแผนที่ พร้อมคิว"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ปุ่มแผนที่บน Goal Dashboard"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ทดสอบปุ่มกับ bookmark จริง"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ประมวลผลคิวแรก (ลบบน X หลังผู้ใช้ยืนยัน)"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ขั้นตอนดึง bookmark ใหม่ภายหลัง"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "เก็บบทเรียนลง Hub"
+        },
+        {
+          "done": false,
+          "date": null,
+          "label": "ใช้งานจริง 2 สัปดาห์ แล้วปรับ"
         }
       ]
     }
